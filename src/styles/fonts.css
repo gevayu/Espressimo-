@@ -2,6 +2,16 @@
    פונטים לאתר ESPRESSIMO
    ============================================ */
 
+/* --- פונט דיאלקט (Dialect PM) --- */
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- פונט פולין (Alefalefalef Polin) --- */
 
 @font-face {

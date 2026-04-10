@@ -15,19 +15,19 @@ export function MerchSection() {
             <div className="rounded-lg overflow-hidden bg-[#f6ede3] aspect-square mb-6">
               <img src={imgMerch1} alt="מרצ'נדייז" className="w-full h-full object-cover" />
             </div>
-            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] tracking-[-2px] font-['Inter',sans-serif]">
+            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] font-['Dialect_PM',sans-serif]">
               חולצת אספרסימו
             </a>
-            <p className="text-[#522c25] text-[13.7px] tracking-[-0.274px] font-['Roboto_Mono',monospace] mt-1">$32.00</p>
+            <p className="text-[#522c25] text-[13.7px] font-['Roboto_Mono',monospace] mt-1">$32.00</p>
           </div>
           <div className="flex-1 border-l border-[#e6dad4] p-9">
             <div className="rounded-lg overflow-hidden bg-[#f6ede3] aspect-square mb-6">
               <img src={imgMerch2} alt="מרצ'נדייז" className="w-full h-full object-cover" />
             </div>
-            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] tracking-[-2px] font-['Inter',sans-serif]">
+            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] font-['Dialect_PM',sans-serif]">
               ספל קרמיקה
             </a>
-            <p className="text-[#522c25] text-[13.7px] tracking-[-0.274px] font-['Roboto_Mono',monospace] mt-1">$18.00</p>
+            <p className="text-[#522c25] text-[13.7px] font-['Roboto_Mono',monospace] mt-1">$18.00</p>
           </div>
         </div>
 

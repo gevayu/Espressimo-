@@ -7,17 +7,17 @@ export function SubscriptionSection() {
       <img src={imgBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
       <div className="relative flex items-center justify-between px-12 py-16">
         <div className="max-w-[600px]">
-          <h2 className="text-[#522c25] text-[38px] leading-[41px] tracking-[-4px] font-['Inter',sans-serif] mb-4">
+          <h2 className="text-[#522c25] text-[38px] leading-[41px] font-['Dialect_PM',sans-serif] mb-4">
             שדרגו את הבקרים שלכם
           </h2>
-          <p className="text-[#522c25] text-[13px] leading-[18px] font-['Inter',sans-serif] mb-6">
+          <p className="text-[#522c25] text-[13px] leading-[18px] font-['Dialect_PM',sans-serif] mb-6">
             מנוי קפה מאספרסימו — קפה טרי נשלח אליכם כל חודש. חסכו כסף, גלו טעמים חדשים, ותהנו מקפה איכותי בכל בוקר.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#c03001] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif]">
+            <button className="bg-[#c03001] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif]">
               הירשמו למנוי
             </button>
-            <button className="bg-[#522c25] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif]">
+            <button className="bg-[#522c25] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif]">
               מתנה
             </button>
           </div>

@@ -5,19 +5,19 @@ export function IntroSection() {
     <section className="bg-[#fff9f2] border-b border-[#e6dad4] py-12 px-9" dir="rtl">
       <div className="flex items-start justify-between">
         <div className="max-w-[1160px]">
-          <p className="font-['Inter',sans-serif] text-[38.9px] leading-[41px] tracking-[-4.1px]">
+          <p className="font-['Dialect_PM',sans-serif] text-[38.9px] leading-[41px]">
             <span className="text-[#522c25]">ב</span>
             <span className="text-[#c03001]">אספרסימו קפה</span>
             <span className="text-[#522c25]"> אנחנו במסע אינסופי אחרי הטון המושלם,</span>
           </p>
-          <p className="font-['Inter',sans-serif] text-[38.9px] leading-[41px] tracking-[-4.1px]">
+          <p className="font-['Dialect_PM',sans-serif] text-[38.9px] leading-[41px]">
             <span className="text-[#522c25]">כל הזמן </span>
             <span className="text-[#89b4ca]">מאתרים וקולים</span>
             <span className="text-[#522c25]"> את </span>
             <span className="text-[#c46500]">קפה הספשיאלטי הטוב ביותר</span>
             <span className="text-[#522c25]"> שאנחנו מוצאים</span>
           </p>
-          <p className="font-['Inter',sans-serif] text-[38.9px] leading-[41px] tracking-[-4.1px]">
+          <p className="font-['Dialect_PM',sans-serif] text-[38.9px] leading-[41px]">
             <span className="text-[#522c25]">ומגישים אותם ל</span>
             <span className="text-[#c03001]">קהילה שלנו</span>
             <span className="text-[#522c25]"> מקרוב ומרחוק!</span>

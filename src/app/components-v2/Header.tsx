@@ -13,11 +13,12 @@ export function Header() {
         {/* Navigation */}
         <nav className="flex items-center border-l border-[#e6dad4] h-full px-4">
           <a href="#" className="flex items-center gap-1.5 px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">
-            חנות <ChevronDown size={10} />
+            מכירה <ChevronDown size={10} />
           </a>
+          <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">תיקון</a>
+          <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">אביזרים</a>
+          <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">מטחנות</a>
           <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">אודות</a>
-          <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">סיטונאי</a>
-          <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">לוח קהילה</a>
           <a href="#" className="px-3 py-2 text-[#522c25] text-[12.5px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]">צור קשר</a>
         </nav>
 

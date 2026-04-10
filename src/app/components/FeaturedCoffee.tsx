@@ -132,15 +132,15 @@ function ProductCard({ product }: { product: CoffeeProduct }) {
         {/* Info */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between">
-            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] tracking-[-2px] capitalize font-['Inter',sans-serif]">
+            <a href="#" className="text-[#522c25] text-[19.2px] leading-[20px] capitalize font-['Dialect_PM',sans-serif]">
               {product.name}
             </a>
-            <span className="text-[#522c25] text-[13.7px] tracking-[-0.274px] font-['Roboto_Mono',monospace]">
+            <span className="text-[#522c25] text-[13.7px] font-['Roboto_Mono',monospace]">
               {product.price}
             </span>
           </div>
 
-          <p className="text-[#522c25] text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif] opacity-70">
+          <p className="text-[#522c25] text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] opacity-70">
             {product.origin}
           </p>
 
@@ -149,7 +149,7 @@ function ProductCard({ product }: { product: CoffeeProduct }) {
             {product.knobs.map((knob, i) => (
               <div key={i} className="flex flex-col items-center opacity-70">
                 <img src={knob.img} alt={knob.label} className="w-[25px] h-[21px]" />
-                <span className="text-[#522c25] text-[6.5px] tracking-[0.35px] uppercase font-['Inter',sans-serif] pt-1 pb-1.5">
+                <span className="text-[#522c25] text-[6.5px] tracking-[0.35px] uppercase font-['Dialect_PM',sans-serif] pt-1 pb-1.5">
                   {knob.label}
                 </span>
               </div>
@@ -171,7 +171,7 @@ function ProductCard({ product }: { product: CoffeeProduct }) {
 
           {/* Quick View */}
           <div
-            className="inline-flex items-center justify-center px-1.5 py-1 rounded-sm text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif] w-fit"
+            className="inline-flex items-center justify-center px-1.5 py-1 rounded-sm text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] w-fit"
             style={{ backgroundColor: product.quickViewColor, color: product.quickViewTextColor }}
           >
             תצוגה מהירה
@@ -188,8 +188,8 @@ function CollectionCard({ title, description, image }: { title: string; descript
       <div className="rounded-lg overflow-hidden relative aspect-square">
         <img src={image} alt={title} className="w-full h-full object-cover" />
         <div className="absolute bottom-6 right-6 left-6">
-          <h3 className="text-white text-[19.2px] leading-[20px] tracking-[-2px] font-['Inter',sans-serif] capitalize">{title}</h3>
-          <p className="text-white/80 text-[13px] leading-[14.3px] font-['Inter',sans-serif] mt-2">{description}</p>
+          <h3 className="text-white text-[19.2px] leading-[20px] font-['Dialect_PM',sans-serif] capitalize">{title}</h3>
+          <p className="text-white/80 text-[13px] leading-[14.3px] font-['Dialect_PM',sans-serif] mt-2">{description}</p>
         </div>
       </div>
     </div>

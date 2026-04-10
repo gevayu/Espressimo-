@@ -6,36 +6,35 @@ export function Footer() {
       {/* Footer Content */}
       <div className="bg-[#522c25] text-[#f6ede3]">
         <div className="flex p-9 gap-12">
-          {/* Visit Us */}
+          {/* Contact info */}
           <div className="flex-1">
-            <h3 className="text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] mb-4">בקרו אותנו</h3>
+            <h3 className="text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] mb-4">צרו קשר</h3>
             <div className="space-y-3 text-[12px] font-['Dialect_PM',sans-serif] opacity-80">
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">רחוב הרצל</p>
-                <p>הרצל 42, תל אביב</p>
+                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">המעבדה שלנו</p>
+                <p>שעות פעילות: א׳–ה׳ 9:00–18:00</p>
               </div>
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">שוק הכרמל</p>
-                <p>הכרמל 15, תל אביב</p>
+                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">טלפון</p>
+                <p>03-0000000</p>
               </div>
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">נמל יפו</p>
-                <p>נמל יפו 7, תל אביב-יפו</p>
+                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">אימייל</p>
+                <p>info@espressimo.co.il</p>
               </div>
             </div>
           </div>
 
           {/* Company Links */}
           <div className="flex-1">
-            <h3 className="text-[16px] font-['Dialect_PM',sans-serif] mb-4">החברה</h3>
+            <h3 className="text-[16px] font-['Dialect_PM',sans-serif] mb-4">אספרסימו</h3>
             <div className="space-y-2 text-[12px] font-['Dialect_PM',sans-serif]">
-              <a href="#" className="block opacity-80 hover:opacity-100">חנות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מכירת מכונות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">תיקון ושיקום</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">אביזרים</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מטחנות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מכונות מחודשות</a>
               <a href="#" className="block opacity-80 hover:opacity-100">אודות</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">קפה</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">מנויים</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">סיטונאי</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">מרצ'נדייז</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">לוח קהילה</a>
               <a href="#" className="block opacity-80 hover:opacity-100">צור קשר</a>
             </div>
           </div>
@@ -64,7 +63,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#522c25] border-t border-[#6b3d34] px-6 py-3 flex justify-between items-center">
         <span className="text-[#f6ede3] text-[10px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
-          © 2026 אספרסימו קפה
+          © 2026 אספרסימו – The Art Of Coffee
         </span>
         <span className="text-[#f6ede3] text-[10px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
           קרדיטים לאתר

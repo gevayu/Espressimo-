@@ -16,8 +16,8 @@ export function CoffeeShopSection() {
           <div className="border-r border-b border-[#e6dad4] p-6">
             <img src={imgShop1} alt="בית קפה 1" className="w-full h-[200px] object-cover rounded-lg" />
             <div className="mt-4">
-              <h3 className="text-[#522c25] text-[19px] tracking-[-2px] font-['Inter',sans-serif]">רחוב הרצל</h3>
-              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Inter',sans-serif] opacity-70 mt-1">
+              <h3 className="text-[#522c25] text-[19px] font-['Dialect_PM',sans-serif]">רחוב הרצל</h3>
+              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] opacity-70 mt-1">
                 ראשון-שישי 7:00-18:00 | שבת 8:00-16:00
               </p>
             </div>
@@ -25,8 +25,8 @@ export function CoffeeShopSection() {
           <div className="border-b border-[#e6dad4] p-6">
             <img src={imgShop2} alt="בית קפה 2" className="w-full h-[200px] object-cover rounded-lg" />
             <div className="mt-4">
-              <h3 className="text-[#522c25] text-[19px] tracking-[-2px] font-['Inter',sans-serif]">שוק הכרמל</h3>
-              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Inter',sans-serif] opacity-70 mt-1">
+              <h3 className="text-[#522c25] text-[19px] font-['Dialect_PM',sans-serif]">שוק הכרמל</h3>
+              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] opacity-70 mt-1">
                 ראשון-שישי 6:30-17:00
               </p>
             </div>
@@ -34,14 +34,14 @@ export function CoffeeShopSection() {
           <div className="border-r border-[#e6dad4] p-6">
             <img src={imgShop3} alt="בית קפה 3" className="w-full h-[200px] object-cover rounded-lg" />
             <div className="mt-4">
-              <h3 className="text-[#522c25] text-[19px] tracking-[-2px] font-['Inter',sans-serif]">נמל יפו</h3>
-              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Inter',sans-serif] opacity-70 mt-1">
+              <h3 className="text-[#522c25] text-[19px] font-['Dialect_PM',sans-serif]">נמל יפו</h3>
+              <p className="text-[#522c25] text-[11px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] opacity-70 mt-1">
                 כל יום 7:00-20:00
               </p>
             </div>
           </div>
           <div className="p-6 flex items-center justify-center">
-            <button className="bg-[#c03001] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif]">
+            <button className="bg-[#c03001] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif]">
               בקרו אותנו
             </button>
           </div>
@@ -54,13 +54,13 @@ export function CoffeeShopSection() {
           <img src={imgPartner} alt="שותף סיטונאי" className="w-full h-[300px] object-cover rounded-lg" />
         </div>
         <div className="flex-1 p-9">
-          <h2 className="text-[#522c25] text-[38px] leading-[41px] tracking-[-4px] font-['Inter',sans-serif] mb-4">
+          <h2 className="text-[#522c25] text-[38px] leading-[41px] font-['Dialect_PM',sans-serif] mb-4">
             שותפות <span className="text-[#c03001]">סיטונאית</span>
           </h2>
-          <p className="text-[#522c25] text-[13px] leading-[18px] font-['Inter',sans-serif] mb-6">
+          <p className="text-[#522c25] text-[13px] leading-[18px] font-['Dialect_PM',sans-serif] mb-6">
             אנחנו עובדים עם בתי קפה ומסעדות ברחבי הארץ. מעוניינים להגיש את הקפה שלנו? צרו איתנו קשר.
           </p>
-          <button className="bg-[#522c25] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Inter',sans-serif]">
+          <button className="bg-[#522c25] text-white px-6 py-3 rounded text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif]">
             למידע נוסף
           </button>
         </div>

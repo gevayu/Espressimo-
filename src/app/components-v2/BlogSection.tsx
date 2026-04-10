@@ -49,8 +49,8 @@ export function BlogSection() {
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
       <div className="p-9">
         <h2 className="text-[38px] leading-[41px] font-['Dialect_PM',sans-serif] mb-8">
-          <span className="text-[#c46500]">לוח קהילה:</span>{" "}
-          <span className="text-[#522c25]">חדשות, אירועים ועוד</span>
+          <span className="text-[#c46500]">רגעים של קפאין</span>{" "}
+          <span className="text-[#522c25]">– מאמרים מקצועיים</span>
         </h2>
       </div>
       <div className="flex overflow-x-auto">

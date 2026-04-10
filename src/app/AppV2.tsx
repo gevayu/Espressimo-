@@ -1,0 +1,29 @@
+import { Header } from "./components-v2/Header";
+import { HeroSection } from "./components-v2/HeroSection";
+import { IntroSection } from "./components-v2/IntroSection";
+import { FeaturedCoffee } from "./components-v2/FeaturedCoffee";
+import { SubscriptionSection } from "./components-v2/SubscriptionSection";
+import { CoffeeShopSection } from "./components-v2/CoffeeShopSection";
+import { MerchSection } from "./components-v2/MerchSection";
+import { BlogSection } from "./components-v2/BlogSection";
+import { InstagramStrip } from "./components-v2/InstagramStrip";
+import { ContactSection } from "./components-v2/ContactSection";
+import { Footer } from "./components-v2/Footer";
+
+export default function AppV2() {
+  return (
+    <div dir="rtl" className="min-h-screen bg-[#fff9f2] font-['Heebo',sans-serif]">
+      <Header />
+      <HeroSection />
+      <IntroSection />
+      <FeaturedCoffee />
+      <SubscriptionSection />
+      <CoffeeShopSection />
+      <MerchSection />
+      <BlogSection />
+      <InstagramStrip />
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+}
