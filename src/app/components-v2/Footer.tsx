@@ -1,5 +1,3 @@
-import imgSpotify from "../../imports/HomePage-2/7e039c0beae97d5f61f81c2bb3638c792fe15323.png";
-
 export function Footer() {
   return (
     <footer dir="rtl">
@@ -8,18 +6,18 @@ export function Footer() {
         <div className="flex p-9 gap-12">
           {/* Contact info */}
           <div className="flex-1">
-            <h3 className="text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] mb-4">צרו קשר</h3>
-            <div className="space-y-3 text-[12px] font-['Dialect_PM',sans-serif] opacity-80">
+            <h3 className="text-[30px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-4">צרו קשר</h3>
+            <div className="space-y-3 text-[30px] font-['Dialect_PM',sans-serif] opacity-80">
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">המעבדה שלנו</p>
+                <p className="uppercase tracking-[0.6px] text-[25px] mb-1">המעבדה שלנו</p>
                 <p>שעות פעילות: א׳–ה׳ 9:00–18:00</p>
               </div>
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">טלפון</p>
+                <p className="uppercase tracking-[0.6px] text-[25px] mb-1">טלפון</p>
                 <p>03-0000000</p>
               </div>
               <div>
-                <p className="uppercase tracking-[0.6px] text-[11px] mb-1">אימייל</p>
+                <p className="uppercase tracking-[0.6px] text-[25px] mb-1">אימייל</p>
                 <p>info@espressimo.co.il</p>
               </div>
             </div>
@@ -27,50 +25,61 @@ export function Footer() {
 
           {/* Company Links */}
           <div className="flex-1">
-            <h3 className="text-[16px] font-['Dialect_PM',sans-serif] mb-4">אספרסימו</h3>
-            <div className="space-y-2 text-[12px] font-['Dialect_PM',sans-serif]">
-              <a href="#" className="block opacity-80 hover:opacity-100">מכירת מכונות</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">תיקון ושיקום</a>
+            <h3 className="text-[26px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-3">אספרסימו</h3>
+            <div className="space-y-1 text-[22px] font-['Dialect_PM',sans-serif]">
+              <a href="#" className="block opacity-80 hover:opacity-100">עלינו</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">המעבדה</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מכונות קפה אוטומטיות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מכונות קפה ידניות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">מטחנות קפה</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">טרייד אין</a>
               <a href="#" className="block opacity-80 hover:opacity-100">אביזרים</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">מטחנות</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">מכונות מחודשות</a>
-              <a href="#" className="block opacity-80 hover:opacity-100">אודות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">תחזוקת מכונות</a>
+              <a href="#" className="block opacity-80 hover:opacity-100">סינון מים</a>
               <a href="#" className="block opacity-80 hover:opacity-100">צור קשר</a>
             </div>
           </div>
 
-          {/* Spotify Widget */}
+          {/* Compact contact form */}
           <div className="flex-1">
-            <div className="bg-[#1a1a2e] rounded-lg p-4 max-w-[380px]">
-              <div className="flex items-center gap-3 mb-3">
-                <img src={imgSpotify} alt="כיסוי אלבום" className="w-[56px] h-[56px] rounded" />
-                <div>
-                  <p className="text-white text-[14px] font-['Helvetica',sans-serif]">Atmosphere - 2020 Digital Remaster</p>
-                  <p className="text-[#c0d0d8] text-[11px] font-['Helvetica',sans-serif]">Joy Division</p>
-                </div>
-              </div>
-              <p className="text-[#c0d0d8] text-[11px] font-['Helvetica',sans-serif] mb-2">
-                פלייליסט אספרסימו | ספוטיפיי
-              </p>
-              <button className="bg-[#1DB954] text-white text-[12px] rounded-full px-4 py-1.5 font-['Helvetica',sans-serif]">
-                שמרו בספוטיפיי
+            <h3 className="text-[30px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-2">
+              קפה מושלם, מתחיל כאן –{" "}
+              <span className="text-[#f4a261]">דברו עם המומחה!</span>
+            </h3>
+            <p className="text-[#f6ede3] text-[22px] font-['Dialect_PM',sans-serif] opacity-70 mb-4">
+              שאלה? תקלה? רוצים לדעת איזו מכונה מתאימה לכם? אנחנו כאן.
+            </p>
+            <form className="flex flex-col gap-3">
+              <input
+                type="text"
+                placeholder="שם + טלפון / אימייל"
+                className="bg-[#6b3d34] border border-[#7a4840] rounded px-4 py-2.5 text-[#f6ede3] text-[22px] font-['Dialect_PM',sans-serif] outline-none focus:border-[#f4a261] placeholder-[#f6ede3]/50 transition-colors"
+              />
+              <textarea
+                rows={3}
+                placeholder="במה נוכל לעזור?"
+                className="bg-[#6b3d34] border border-[#7a4840] rounded px-4 py-2.5 text-[#f6ede3] text-[22px] font-['Dialect_PM',sans-serif] outline-none focus:border-[#f4a261] placeholder-[#f6ede3]/50 resize-none transition-colors"
+              />
+              <button
+                type="submit"
+                className="bg-[#c03001] text-white px-5 py-2.5 rounded text-[22px] tracking-[0.07em] font-['Dialect_PM',sans-serif] w-fit hover:bg-[#a32801] transition-colors"
+              >
+                שלחו הודעה
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="bg-[#522c25] border-t border-[#6b3d34] px-6 py-3 flex justify-between items-center">
-        <span className="text-[#f6ede3] text-[10px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
+        <span className="text-[#f6ede3] text-[25px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
           © 2026 אספרסימו – The Art Of Coffee
         </span>
-        <span className="text-[#f6ede3] text-[10px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
+        <span className="text-[#f6ede3] text-[25px] tracking-[0.5px] uppercase font-['Dialect_PM',sans-serif]">
           קרדיטים לאתר
         </span>
       </div>
-
-      {/* Instagram footer strip */}
     </footer>
   );
 }

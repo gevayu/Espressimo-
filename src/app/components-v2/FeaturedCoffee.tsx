@@ -34,7 +34,7 @@ const services: ServiceCard[] = [
     description:
       "מטחנות מעולות שמכינות את הקפה בדיוק כמו שרציתם, בכל פעם מחדש.",
     cta: "לבחירת מטחנה",
-    accentColor: "#89b4ca",
+    accentColor: "#C4956A",
   },
   {
     image: imgShop4,
@@ -50,7 +50,7 @@ export function FeaturedCoffee() {
   return (
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
       <div className="p-9 border-b border-[#e6dad4]">
-        <h2 className="text-[38px] leading-[41px] font-['Dialect_PM',sans-serif]">
+        <h2 className="text-[53px] leading-[41px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] font-bold">
           <span className="text-[#c46500]">השירותים שלנו</span>
         </h2>
       </div>
@@ -58,20 +58,20 @@ export function FeaturedCoffee() {
         {services.map((service, i) => (
           <div
             key={i}
-            className="flex-1 border-l border-[#e6dad4] first:border-l-0 p-9 flex flex-col gap-6"
+            className="flex-1 border-r border-[#e6dad4] first:border-r-0 p-9 flex flex-col gap-6"
           >
             <div className="rounded-lg overflow-hidden bg-[#f6ede3] aspect-square">
               <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col gap-3 flex-1">
-              <h3 className="text-[#522c25] text-[19.2px] leading-[22px] font-['Dialect_PM',sans-serif]">
+              <h3 className="text-[#522c25] text-[32px] leading-[36px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] font-bold">
                 {service.title}
               </h3>
-              <p className="text-[#522c25] text-[13px] leading-[18px] font-['Dialect_PM',sans-serif] opacity-75 flex-1">
+              <p className="text-[#522c25] text-[25px] leading-[32px] font-['Dialect_PM',sans-serif] opacity-75 flex-1">
                 {service.description}
               </p>
               <button
-                className="mt-2 px-5 py-2.5 rounded text-[12px] tracking-[0.6px] uppercase font-['Dialect_PM',sans-serif] text-white w-fit"
+                className="mt-2 px-5 py-2.5 rounded text-[30px] tracking-[0.07em] uppercase font-['Dialect_PM',sans-serif] text-white w-fit"
                 style={{ backgroundColor: service.accentColor }}
               >
                 {service.cta}
