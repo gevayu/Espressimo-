@@ -2,7 +2,7 @@ const trustPoints = [
   {
     title: "מכונות קפה פרימיום",
     description: "הקפה שלכם, המקצועיות שלנו",
-    color: "#c03001",
+    color: "#8B3A00",
   },
   {
     title: "25+ שנות מומחיות",

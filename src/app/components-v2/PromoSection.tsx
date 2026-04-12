@@ -91,7 +91,7 @@ export function PromoSection() {
         <h2 className="text-[53px] leading-[41px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em]">
           <span className="text-[#c46500]">המבצעים שלנו</span>
         </h2>
-        <span className="bg-[#c03001] text-white text-[22px] font-['Dialect_PM',sans-serif] tracking-[0.05em] px-4 py-1.5 rounded-full">
+        <span className="bg-[#8B3A00] text-white text-[22px] font-['Dialect_PM',sans-serif] tracking-[0.05em] px-4 py-1.5 rounded-full">
           מחירים מוגבלים בזמן
         </span>
       </div>
@@ -132,19 +132,19 @@ export function PromoSection() {
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-300 rounded-lg" />
                   </div>
-                  <div className="absolute top-3 left-3 bg-[#c03001] text-white text-[18px] font-['Dialect_PM',sans-serif] font-bold px-2.5 py-1 rounded">
+                  <div className="absolute top-3 left-3 bg-[#8B3A00] text-white text-[18px] font-['Dialect_PM',sans-serif] font-bold px-2.5 py-1 rounded">
                     מבצע
                   </div>
                 </div>
 
-                <h3 className="text-[#522c25] text-[20px] leading-[24px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-1 transition-colors duration-200 group-hover:text-[#c03001]">
+                <h3 className="text-[#522c25] text-[20px] leading-[24px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-1 transition-colors duration-200 group-hover:text-[#8B3A00]">
                   {promo.name}
                 </h3>
-                <p className="text-[#c03001] text-[22px] font-['Dialect_PM',sans-serif] opacity-80 mb-2">
+                <p className="text-[#8B3A00] text-[22px] font-['Dialect_PM',sans-serif] opacity-80 mb-2">
                   {promo.description}
                 </p>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-[#c03001] text-[24px] font-['Dialect_PM',sans-serif] font-bold">
+                  <span className="text-[#8B3A00] text-[24px] font-['Dialect_PM',sans-serif] font-bold">
                     {promo.salePrice}
                   </span>
                   <span className="text-[#522c25] text-[20px] font-['Dialect_PM',sans-serif] opacity-40 line-through">

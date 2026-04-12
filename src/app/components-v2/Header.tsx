@@ -1,24 +1,34 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import imgLogo from "../../imports/HomePage-2/fb863a6f83f0deff3e89866fe19b2a6231928be4.png";
-import imgMachine1 from "../../imports/HomePage-2/c4ddfc79e83dc897d83bd6f6b5bd8736e0443c8b.png";
-import imgMachine2 from "../../imports/HomePage-2/ff758012fd54baa6da64fa09677021c061155068.png";
-import imgMachine3 from "../../imports/HomePage-2/6d9971dbb3c025bd05863240e166f7f9d57783ad.png";
+const imgMachine1 = "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-E8-דור-3.jpg";
+const imgMachine2 = "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg";
+const imgMachine3 = "https://espressimo.co.il/wp-content/uploads/2025/02/%D7%9E%D7%9B%D7%95%D7%A0%D7%AA-%D7%A7%D7%A4%D7%94-%D7%99%D7%93%D7%A0%D7%99%D7%AA-ECM-Synchronika-II.jpg";
 
-const autoBrands = [
-  "מכונות קפה Jura",
-  "מכונות קפה Kalerm",
-  "מכונות קפה DR COFFEE",
-  "מכונות קפה La Marzocco",
-  "מכונות קפה ECM",
-  "מכונות קפה Quick Mill",
-  "מכונות קפה Stone",
+const brandGroups = [
+  {
+    label: "מכונות אוטומטיות",
+    brands: [
+      { name: "מכונות קפה Jura", tag: "הנמכרת ביותר" },
+      { name: "מכונות קפה Kalerm", tag: "" },
+      { name: "מכונות קפה DR COFFEE", tag: "" },
+    ],
+  },
+  {
+    label: "מכונות ידניות",
+    brands: [
+      { name: "מכונות קפה La Marzocco", tag: "פרמיום" },
+      { name: "מכונות קפה ECM", tag: "" },
+      { name: "מכונות קפה Quick Mill", tag: "" },
+      { name: "מכונות קפה Stone", tag: "" },
+    ],
+  },
 ];
 
-const megaImages = [
-  { src: imgMachine1, label: "Jura E8" },
-  { src: imgMachine2, label: "La Marzocco Linea" },
-  { src: imgMachine3, label: "ECM Synchronika" },
+const featured = [
+  { src: imgMachine1, label: "Jura E8 דור 3", sub: "מכונת קפה אוטומטית", price: "₪7,499" },
+  { src: imgMachine2, label: "La Marzocco Linea", sub: "מכונת קפה ידנית", price: "₪9,900" },
+  { src: imgMachine3, label: "ECM Synchronika", sub: "מכונת קפה ידנית", price: "₪12,900" },
 ];
 
 const navLink = "px-3 py-2 text-[#522c25] text-[22px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]";
@@ -54,41 +64,92 @@ export function Header() {
             </button>
 
             {megaOpen && (
-              <div className="absolute top-full right-0 w-[760px] bg-[#fff9f2] border border-[#e6dad4] shadow-2xl z-50 flex" dir="rtl">
-                {/* Brands */}
-                <div className="flex-1 p-8 border-l border-[#e6dad4]">
-                  <p className="text-[#522c25] text-[12px] tracking-[0.12em] uppercase font-['Dialect_PM',sans-serif] opacity-40 mb-4">
-                    לפי מותג
-                  </p>
-                  <ul className="space-y-0.5">
-                    {autoBrands.map((brand) => (
-                      <li key={brand}>
-                        <a
-                          href="#"
-                          className="block px-2 py-2 text-[#522c25] text-[20px] font-['Dialect_PM',sans-serif] hover:text-[#c03001] hover:bg-[#f6ede3] rounded transition-colors"
-                        >
-                          {brand}
-                        </a>
-                      </li>
+              <div
+                className="absolute top-full right-0 bg-[#fff9f2] border border-[#e6dad4] shadow-2xl z-50"
+                dir="rtl"
+                style={{ width: "1100px" }}
+              >
+                {/* Top accent bar */}
+                <div className="h-[3px] w-full" style={{ background: "linear-gradient(to left, #A35200, #FFB84D)" }} />
+
+                <div className="flex">
+                  {/* Brand columns */}
+                  <div className="flex-1 p-10 flex gap-12">
+                    {brandGroups.map((group) => (
+                      <div key={group.label} className="flex-1">
+                        <p className="text-[#522c25] text-[13px] tracking-[0.15em] uppercase font-['Dialect_PM',sans-serif] opacity-40 mb-5 border-b border-[#e6dad4] pb-3">
+                          {group.label}
+                        </p>
+                        <ul className="space-y-1">
+                          {group.brands.map((brand) => (
+                            <li key={brand.name}>
+                              <a
+                                href="#"
+                                className="flex items-center justify-between px-3 py-2.5 text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] hover:text-[#8B3A00] hover:bg-[#f6ede3] rounded transition-colors group"
+                              >
+                                <span>{brand.name}</span>
+                                {brand.tag && (
+                                  <span className="text-[12px] bg-[#c46500]/15 text-[#c46500] px-2.5 py-0.5 rounded-full font-['Dialect_PM',sans-serif] opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {brand.tag}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="w-px bg-[#e6dad4] my-6" />
+
+                  {/* Featured products */}
+                  <div className="w-[360px] p-8 bg-[#f6ede3] flex flex-col gap-2">
+                    <p className="text-[#522c25] text-[13px] tracking-[0.15em] uppercase font-['Dialect_PM',sans-serif] opacity-40 mb-3">
+                      מומלצים עכשיו
+                    </p>
+                    {featured.map((item) => (
+                      <a key={item.label} href="#" className="group flex items-center gap-4 p-3 rounded-xl hover:bg-[#ede0d4] transition-colors">
+                        <div className="w-[88px] h-[88px] rounded-xl overflow-hidden bg-white shrink-0">
+                          <img
+                            src={item.src}
+                            alt={item.label}
+                            className="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-200"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[#522c25] text-[20px] font-['Dialect_PM',sans-serif] font-bold group-hover:text-[#8B3A00] transition-colors leading-tight">
+                            {item.label}
+                          </p>
+                          <p className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] opacity-55 mt-1">
+                            {item.sub}
+                          </p>
+                          <p className="text-[#c46500] text-[19px] font-['Dialect_PM',sans-serif] font-bold mt-1">
+                            {item.price}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
+
+                    {/* CTA */}
+                    <a
+                      href="#"
+                      className="mt-4 block text-center bg-[#8B3A00] text-white text-[20px] font-['Dialect_PM',sans-serif] tracking-[0.05em] py-3 rounded-lg hover:bg-[#a34500] transition-colors"
+                    >
+                      לכל המכונות ←
+                    </a>
+                  </div>
                 </div>
 
-                {/* Images */}
-                <div className="w-[300px] p-6 flex flex-col gap-4 bg-[#f6ede3]">
-                  <p className="text-[#522c25] text-[12px] tracking-[0.12em] uppercase font-['Dialect_PM',sans-serif] opacity-40 mb-1">
-                    מומלצים
-                  </p>
-                  {megaImages.map((img) => (
-                    <a key={img.label} href="#" className="group flex items-center gap-3">
-                      <div className="w-[72px] h-[72px] rounded-lg overflow-hidden bg-[#f6ede3] shrink-0">
-                        <img src={img.src} alt={img.label} className="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-200" />
-                      </div>
-                      <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] group-hover:text-[#c03001] transition-colors">
-                        {img.label}
-                      </span>
-                    </a>
-                  ))}
+                {/* Bottom strip */}
+                <div className="border-t border-[#e6dad4] px-10 py-4 flex items-center gap-6 bg-[#fdf6ee]">
+                  <span className="text-[#522c25] text-[17px] font-['Dialect_PM',sans-serif] opacity-50">
+                    לא בטוחים איזו מכונה מתאימה לכם?
+                  </span>
+                  <a href="#" className="text-[#8B3A00] text-[18px] font-['Dialect_PM',sans-serif] font-bold underline underline-offset-2 hover:opacity-80">
+                    דברו עם המומחה שלנו ←
+                  </a>
                 </div>
               </div>
             )}

@@ -62,7 +62,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#c03001] text-white px-5 py-2.5 rounded text-[22px] tracking-[0.07em] font-['Dialect_PM',sans-serif] w-fit hover:bg-[#a32801] transition-colors"
+                className="bg-[#8B3A00] text-white px-5 py-2.5 rounded text-[22px] tracking-[0.07em] font-['Dialect_PM',sans-serif] w-fit hover:bg-[#a32801] transition-colors"
               >
                 שלחו הודעה
               </button>

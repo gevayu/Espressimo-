@@ -12,12 +12,13 @@ interface ProductCarouselProps {
   title: string;
   subtitle: string;
   picks: Pick[];
+  slideDelay?: number;
 }
 
 const VISIBLE = 5;
 const AUTO_ADVANCE_MS = 6000;
 
-function ProductCarousel({ title, subtitle, picks }: ProductCarouselProps) {
+function ProductCarousel({ title, subtitle, picks, slideDelay = 0 }: ProductCarouselProps) {
   const [offset, setOffset] = useState(0);
   const maxOffset = picks.length - VISIBLE;
 
@@ -61,7 +62,7 @@ function ProductCarousel({ title, subtitle, picks }: ProductCarouselProps) {
         <div className="flex-1 overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(${translatePct}%)` }}
+            style={{ transform: `translateX(${translatePct}%)`, transitionDelay: slideDelay ? `${slideDelay}ms` : undefined }}
           >
             {picks.map((pick, i) => (
               <div
@@ -82,10 +83,10 @@ function ProductCarousel({ title, subtitle, picks }: ProductCarouselProps) {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-300 rounded-lg" />
                 </div>
 
-                <h3 className="text-[#522c25] text-[20px] leading-[24px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-1 transition-colors duration-200 group-hover:text-[#c03001]">
+                <h3 className="text-[#522c25] text-[20px] leading-[24px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-1 transition-colors duration-200 group-hover:text-[#8B3A00]">
                   {pick.name}
                 </h3>
-                <p className="text-[#c03001] text-[22px] font-['Dialect_PM',sans-serif] opacity-80">
+                <p className="text-[#8B3A00] text-[22px] font-['Dialect_PM',sans-serif] opacity-80">
                   {pick.drink}
                 </p>
                 {pick.price && (
@@ -149,7 +150,7 @@ const bestSellers: Pick[] = [
     price: "₪7,499",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2021/02/מכונת-קפה-ידנית-ECM-Synchronika.jpg",
+    image: "https://espressimo.co.il/wp-content/uploads/2025/02/%D7%9E%D7%9B%D7%95%D7%A0%D7%AA-%D7%A7%D7%A4%D7%94-%D7%99%D7%93%D7%A0%D7%99%D7%AA-ECM-Synchronika-II.jpg",
     name: "ECM Synchronika",
     drink: "מכונת קפה ידנית",
     price: "₪12,900",
@@ -194,22 +195,22 @@ const teamPicks: Pick[] = [
     price: "₪95",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/פולי-קפה-אילי-קלאסיקו-illy-Classico.jpg",
-    name: "illy Classico",
-    drink: "100% ערביקה, עגול ועשיר",
+    image: "https://espressimo.co.il/wp-content/uploads/2025/02/1-קג-פולי-קפה-דולצה-Molinari-Dolce-Rosa.jpg",
+    name: "Molinari Dolce Rosa",
+    drink: "תערובת עדינה, ארומה פרחונית",
     price: "₪82",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/פולי-קפה-קימבו-אספרסו-נפוליטנו-Kimbo-Espresso-Napoletano.jpg",
-    name: "Kimbo Napoletano",
-    drink: "תערובת נאפוליטנית, גוף כבד",
+    image: "https://espressimo.co.il/wp-content/uploads/2025/08/B2B_Tradizione_Lato_1kg.png",
+    name: "Molinari Tradizione",
+    drink: "תערובת קלאסית, גוף עשיר",
     price: "₪76",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/פולי-קפה-לה-וזה-סופר-קרמה-Lavazza-Super-Crema.jpg",
-    name: "Lavazza Super Crema",
-    drink: "קרמה עשירה, ארומה מרהיבה",
-    price: "₪78",
+    image: "https://espressimo.co.il/wp-content/uploads/2024/12/פולי-קפה-דיאמה-זהב-1-קג-Caffe-Diemme-Gold.jpg",
+    name: "Caffe Diemme Gold",
+    drink: "זהב, תערובת מיוחדת",
+    price: "₪88",
   },
 ];
 
@@ -225,6 +226,7 @@ export function MerchSection() {
         title="מה הצוות שלנו שותה השבוע?"
         subtitle="טעימת השבוע שלנו – פולי קפה מובחרים"
         picks={teamPicks}
+        slideDelay={3500}
       />
     </>
   );

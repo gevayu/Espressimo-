@@ -1,7 +1,7 @@
-import imgShop1 from "../../imports/HomePage-2/e8730a91bb134c08026a09f645c6ec77fa6ffd52.png";
-import imgShop2 from "../../imports/HomePage-2/0cc378ee6b2d94001b8e24a7486e661697a47642.png";
-import imgShop3 from "../../imports/HomePage-2/c8f7e4c1c6b719df653cdade1c2b58be21cdc988.png";
-import imgShop4 from "../../imports/HomePage-2/cd54f773f2b5978b09e91da3b6945f58deb5f4a8.png";
+const imgShop1 = "/picts/instgram/NIM_9834 1.jpg";
+const imgShop2 = "/picts/NIM_0530%201%20(1).jpg";
+const imgShop3 = "/picts/NIM_0516%201_1.jpg";
+const imgShop4 = "/picts/instgram/NIM_0437 1.jpg";
 
 interface ServiceCard {
   image: string;
@@ -18,7 +18,7 @@ const services: ServiceCard[] = [
     description:
       "מכונת הקפה שלכם נמצאת בידיים טובות. אנחנו מומחים למכונות קפה מכל הסוגים: ידניות, קלאסיות ואוטומטיות, ומחזירים אותן לביצועים ממש כמו חדשות.",
     cta: "לתיקון מהיר",
-    accentColor: "#c03001",
+    accentColor: "#8B3A00",
   },
   {
     image: imgShop2,

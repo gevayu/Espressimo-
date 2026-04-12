@@ -9,7 +9,7 @@ const banners = [
     title: "מכונת הקפה במצוקה?",
     subtitle: "טיפול מהיר ומקצועי לשדרוג המכונה, והקפה הבא שלכם",
     cta: "לתיקון מהיר במעבדה שלנו",
-    accent: "#c03001",
+    accent: "#8B3A00",
     image: imgHero1,
   },
   {
@@ -48,10 +48,10 @@ export function HeroSection() {
   const banner = banners[active];
 
   return (
-    <section className="bg-[#febf6f] p-[15px]">
+    <section className="p-[15px]" style={{ background: "linear-gradient(45deg, #A35200 0%, #FFB84D 100%)" }}>
       {/* Tagline bar */}
       <div className="text-center py-0.5 mb-[15px]">
-        <p className="font-['Dialect_PM',sans-serif] text-[#522c25] text-[25px] tracking-[0.6px]">
+        <p className="font-['Dialect_PM',sans-serif] text-white text-[25px] tracking-[0.6px]">
           <span className="font-['Dialect_PM',sans-serif] font-bold text-[25px]">ESPRESSIMO – The Art Of Coffee</span>
           {"  ·  "}
           מכירה | תיקון | ליווי עד הקפה המושלם

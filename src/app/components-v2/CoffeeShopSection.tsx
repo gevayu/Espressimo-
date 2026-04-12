@@ -20,7 +20,7 @@ export function CoffeeShopSection() {
           <p className="text-[#522c25] text-[25px] leading-[36px] font-['Dialect_PM',sans-serif] opacity-80 mb-4">
             משנת 2000 ועד היום, אנחנו מספקים שירותי קפה מקצועיים ומשובחים, לצד מעבדה שמוצאת פתרונות לכל מכונות הקפה.
           </p>
-          <p className="text-[#c03001] text-[25px] leading-[36px] font-['Dialect_PM',sans-serif] mb-8">
+          <p className="text-[#8B3A00] text-[25px] leading-[36px] font-['Dialect_PM',sans-serif] mb-8">
             כי קפאין זו דרך חיים, ובאספרסימו, אנחנו לא רק מוכרים, מתקנים ומשדרגים מכונות – אנחנו נושמים כל כוס קפה, כל רגע, בדיוק כמו שצריך.
           </p>
           <button className="bg-[#522c25] text-white px-7 py-3 rounded text-[23px] tracking-[0.07em] uppercase font-['Dialect_PM',sans-serif] w-fit">

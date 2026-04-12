@@ -74,7 +74,7 @@ export function BrandsStrip() {
           width: ${ITEM_W}px;
           height: 80px;
           object-fit: contain;
-          filter: grayscale(1) opacity(0.35);
+          filter: grayscale(1) opacity(0.55);
           transition: filter 0.35s ease;
         }
         .brands-logo-item:hover img {

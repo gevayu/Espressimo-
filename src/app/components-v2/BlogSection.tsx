@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import imgBlog1 from "../../imports/HomePage-2/d7e01b4f47354bb8307bb9018474263e006d688f.png";
-import imgBlog2 from "../../imports/HomePage-2/46931757ae5fad9490cf4473745c4dc35bdc8510.png";
-import imgBlog3 from "../../imports/HomePage-2/81e1ec119936031c68b3b1eb7cc865682cdb87ae.png";
-import imgBlog4 from "../../imports/HomePage-2/e04f30c65706796347b2eac2ae790f53049714f4.png";
+const imgBlog1 = "/picts/17264.jpg";
+const imgBlog2 = "/picts/2150354578.jpg";
+const imgBlog3 = "/picts/45799.jpg";
+const imgBlog4 = "/picts/178634.jpg";
 import imgBlog5 from "../../imports/HomePage-2/31b26ec72fbedd17f5dccf485a3aa86824a74b6f.png";
-import imgBlog6 from "../../imports/HomePage-2/5730c1341e9c10c7f02b1aa958dc88ef00a3154d.png";
-import imgBlog7 from "../../imports/HomePage-2/c8f7e4c1c6b719df653cdade1c2b58be21cdc988.png";
+const imgBlog6 = "/picts/7849.jpg";
+const imgBlog7 = "/picts/29677.jpg";
 import imgBlog8 from "../../imports/HomePage-2/0cc378ee6b2d94001b8e24a7486e661697a47642.png";
 
 interface BlogPost {
@@ -19,50 +19,50 @@ interface BlogPost {
 const posts: BlogPost[] = [
   {
     image: imgBlog1,
-    title: "סיפור הקפה מבורונדי",
-    date: "10 במרץ, 2026",
+    title: "מאיפה מגיע הקפה שלנו?",
+    date: "1 באפריל, 2026",
     action: "קראו עוד",
   },
   {
     image: imgBlog2,
     title: "הכירו את היצרן",
-    date: "25 בפברואר, 2026",
+    date: "18 במרץ, 2026",
     action: "קראו עוד",
   },
   {
     image: imgBlog3,
-    title: "פלייליסט סתיו וחורף בספוטיפיי",
-    date: "15 בנובמבר, 2025",
+    title: "פלייליסט אביב בספוטיפיי",
+    date: "4 במרץ, 2026",
     action: "האזינו עכשיו",
   },
   {
     image: imgBlog4,
     title: "עקבו אחרינו בספוטיפיי",
-    date: "1 באוקטובר, 2025",
+    date: "18 בפברואר, 2026",
     action: "האזינו עכשיו",
   },
   {
     image: imgBlog5,
     title: "למה האתר החדש?",
-    date: "20 בספטמבר, 2025",
+    date: "4 בפברואר, 2026",
     action: "קראו עוד",
   },
   {
     image: imgBlog6,
     title: "5 הגדרות שישנו את הקפה שלכם",
-    date: "5 באוגוסט, 2025",
+    date: "21 בינואר, 2026",
     action: "קראו עוד",
   },
   {
     image: imgBlog7,
     title: "מה זה באמת Single Origin?",
-    date: "12 ביולי, 2025",
+    date: "7 בינואר, 2026",
     action: "קראו עוד",
   },
   {
     image: imgBlog8,
     title: "מדריך: לטחון קפה בבית",
-    date: "1 ביוני, 2025",
+    date: "1 בינואר, 2026",
     action: "קראו עוד",
   },
 ];
@@ -123,14 +123,14 @@ export function BlogSection() {
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    className={`w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.04] ${post.title === 'מה זה באמת Single Origin?' ? 'object-contain bg-[#f6ede3]' : ''}`}
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-300" />
                 </div>
                 <p className="text-[#522c25] text-[22px] tracking-[0.6px] font-['Dialect_PM',sans-serif] opacity-55 mb-2">
                   {post.date}
                 </p>
-                <h3 className="text-[#522c25] text-[26px] leading-[30px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-3 transition-colors duration-200 group-hover:text-[#c03001]">
+                <h3 className="text-[#522c25] text-[26px] leading-[30px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em] mb-3 transition-colors duration-200 group-hover:text-[#8B3A00]">
                   {post.title}
                 </h3>
                 <a
