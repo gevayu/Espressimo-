@@ -2,6 +2,7 @@ import { Header } from "./components-v2/Header";
 import { HeroSection } from "./components-v2/HeroSection";
 import { IntroSection } from "./components-v2/IntroSection";
 import { FeaturedCoffee } from "./components-v2/FeaturedCoffee";
+import { BrandsStrip } from "./components-v2/BrandsStrip";
 import { PromoSection } from "./components-v2/PromoSection";
 import { SubscriptionSection } from "./components-v2/SubscriptionSection";
 import { CoffeeShopSection } from "./components-v2/CoffeeShopSection";
@@ -16,6 +17,7 @@ export default function AppV2() {
       <Header />
       <HeroSection />
       <IntroSection />
+      <BrandsStrip />
       <FeaturedCoffee />
       <PromoSection />
       <SubscriptionSection />

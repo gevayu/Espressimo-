@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import imgHero1 from "../../imports/HomePage-2/cad2bc5d0fa327ce749e88df3bdc57cd9a4f6413.png";
-import imgHero2 from "../../imports/HomePage-2/5d9eed72d6cd2f3ee69ab66814d0fdf5a3771aa2.png";
-import imgHero3 from "../../imports/HomePage-2/64dffa7fc8cc5b3f272c4c358faadd3931d3d495.png";
+const imgHero2 = "/picts/stuff3.jpg";
+const imgHero3 = "/picts/banner2.jpg";
 import imgLogo from "../../imports/HomePage-2/43b62430074079a9654dbf1140aa0ddcf45b556e.png";
 
 const banners = [
@@ -50,7 +50,7 @@ export function HeroSection() {
   return (
     <section className="bg-[#febf6f] p-[15px]">
       {/* Tagline bar */}
-      <div className="text-center py-3 mb-[15px]">
+      <div className="text-center py-0.5 mb-[15px]">
         <p className="font-['Dialect_PM',sans-serif] text-[#522c25] text-[25px] tracking-[0.6px]">
           <span className="font-['Dialect_PM',sans-serif] font-bold text-[25px]">ESPRESSIMO – The Art Of Coffee</span>
           {"  ·  "}
@@ -71,13 +71,11 @@ export function HeroSection() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/30" />
 
-        {/* Logo */}
-        <div className="absolute top-[38px] right-[37px]">
-          <img src={imgLogo} alt="אספרסימו" className="h-[70px] w-auto" />
-        </div>
+        {/* Gradient overlay — right half only */}
+        <div className="absolute inset-y-0 right-0 w-[65%] pointer-events-none" style={{ background: "linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%)" }} />
 
         {/* Banner content with entry animation */}
-        <div className="absolute inset-0 flex items-center justify-end px-16" dir="rtl">
+        <div className="absolute inset-0 flex items-center justify-start px-16" dir="rtl">
           <div
             key={animKey}
             className="max-w-[580px]"

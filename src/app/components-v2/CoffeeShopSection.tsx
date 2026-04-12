@@ -1,4 +1,4 @@
-import imgPartner from "../../imports/HomePage-2/cd54f773f2b5978b09e91da3b6945f58deb5f4a8.png";
+const imgPartner = "/picts/magav.jpg";
 
 export function CoffeeShopSection() {
   return (

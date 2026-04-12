@@ -32,7 +32,7 @@ export function Header() {
       <div className="flex items-center h-[68px]">
         {/* Logo */}
         <div className="flex items-center px-6 border-l border-[#e6dad4] h-full">
-          <img src={imgLogo} alt="אספרסימו" className="h-7 w-auto" />
+          <img src={imgLogo} alt="אספרסימו" className="h-11 w-auto" />
         </div>
 
         {/* Navigation */}
