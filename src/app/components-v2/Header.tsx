@@ -26,9 +26,9 @@ const brandGroups = [
 ];
 
 const featured = [
-  { src: imgMachine1, label: "Jura E8 דור 3", sub: "מכונת קפה אוטומטית", price: "ש"ח 7,499" },
-  { src: imgMachine2, label: "La Marzocco Linea", sub: "מכונת קפה ידנית", price: "ש"ח 9,900" },
-  { src: imgMachine3, label: "ECM Synchronika", sub: "מכונת קפה ידנית", price: "ש"ח 12,900" },
+  { src: imgMachine1, label: "Jura E8 דור 3", sub: "מכונת קפה אוטומטית", price: 'ש"ח 7,499' },
+  { src: imgMachine2, label: "La Marzocco Linea", sub: "מכונת קפה ידנית", price: 'ש"ח 9,900' },
+  { src: imgMachine3, label: "ECM Synchronika", sub: "מכונת קפה ידנית", price: 'ש"ח 12,900' },
 ];
 
 const navLink = "px-3 py-2 text-[#522c25] text-[22px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]";
