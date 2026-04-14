@@ -1,13 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ShoppingCart, Star } from "lucide-react";
 
 export function StickyBar() {
   const [visible, setVisible] = useState(false);
+  const footerVisible = useRef(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (footer) {
+      const observer = new IntersectionObserver(
+        ([entry]) => { footerVisible.current = entry.isIntersecting; },
+        { threshold: 0.05 }
+      );
+      observer.observe(footer);
+      return () => observer.disconnect();
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
-      // Show after scrolling past ~500px (past the hero)
-      setVisible(window.scrollY > 500);
+      setVisible(window.scrollY > 500 && !footerVisible.current);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -15,17 +27,17 @@ export function StickyBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed bottom-0 left-0 right-0 z-40 transition-all duration-300"
       style={{
-        transform: visible ? "translateY(0)" : "translateY(-100%)",
+        transform: visible ? "translateY(0)" : "translateY(100%)",
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
       }}
       dir="rtl"
     >
       <div
-        className="flex items-center gap-6 px-10 py-3 border-b border-[#e6dad4]"
-        style={{ background: "rgba(255, 249, 242, 0.95)", backdropFilter: "blur(12px)" }}
+        className="flex items-center gap-6 px-10 py-3 border-t border-[#e6dad4]"
+        style={{ background: "rgba(255, 249, 242, 0.97)", backdropFilter: "blur(12px)" }}
       >
         {/* Thumbnail */}
         <div className="w-12 h-12 rounded-lg bg-[#f6ede3] overflow-hidden shrink-0">

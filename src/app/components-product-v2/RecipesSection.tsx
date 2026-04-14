@@ -1,7 +1,7 @@
 const recipes = [
   {
     name: "אספרסו קלאסי",
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-Z10.jpg",
+    image: "https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800",
     time: "25 שנ'",
     difficulty: "קל",
     params: [
@@ -14,7 +14,7 @@ const recipes = [
   },
   {
     name: "קפה לאטה",
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-ENA-8-דור-3.jpg",
+    image: "https://images.pexels.com/photos/414605/pexels-photo-414605.jpeg?auto=compress&cs=tinysrgb&w=800",
     time: "45 שנ'",
     difficulty: "בינוני",
     params: [
@@ -27,7 +27,7 @@ const recipes = [
   },
   {
     name: "קולד ברו",
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-J8-twin-צבע-שחור-יהלום.jpg",
+    image: "https://images.pexels.com/photos/11100423/pexels-photo-11100423.jpeg?auto=compress&cs=tinysrgb&w=800",
     time: "2 דק'",
     difficulty: "קל",
     params: [
@@ -40,7 +40,7 @@ const recipes = [
   },
   {
     name: "קפוצ'ינו",
-    image: "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg",
+    image: "https://images.pexels.com/photos/9249368/pexels-photo-9249368.jpeg?auto=compress&cs=tinysrgb&w=800",
     time: "40 שנ'",
     difficulty: "קל",
     params: [
@@ -81,7 +81,7 @@ export function RecipesSection() {
                 <img
                   src={r.image}
                   alt={r.name}
-                  className="w-full h-full object-contain mix-blend-multiply p-6 group-hover:scale-[1.04] transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
                 />
               </div>
 

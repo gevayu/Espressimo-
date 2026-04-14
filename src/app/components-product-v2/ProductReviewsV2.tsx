@@ -156,7 +156,7 @@ export function ProductReviewsV2() {
         </div>
 
         {/* Reviews grid */}
-        <div className="grid grid-cols-2 gap-5 mb-14">
+        <div className="grid grid-cols-3 gap-5 mb-14">
           {filtered.map((r, i) => (
             <div key={i} className="bg-[#fff9f2] rounded-2xl p-7 border border-[#e6dad4]">
               <div className="flex items-start justify-between mb-3">

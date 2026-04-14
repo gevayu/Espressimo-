@@ -57,9 +57,6 @@ export function FeatureBlocks() {
             <p className="text-[#522c25] text-[22px] leading-[36px] font-['Dialect_PM',sans-serif] opacity-70">
               {block.body}
             </p>
-            <a href="#" className="text-[#8B3A00] text-[20px] font-['Dialect_PM',sans-serif] font-bold underline underline-offset-4 hover:opacity-70 transition-opacity w-fit">
-              קראו עוד ←
-            </a>
           </div>
         </div>
       ))}

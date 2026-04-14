@@ -9,6 +9,10 @@ export function StoryBlock() {
             alt="JURA story"
             className="w-full h-full object-contain mix-blend-multiply p-16"
           />
+          {/* JURA logo — bottom left */}
+          <div className="absolute bottom-8 left-8">
+            <img src="/logos/JURA.png" alt="JURA" className="h-[100px] w-auto opacity-15" />
+          </div>
           {/* Year badge */}
           <div className="absolute bottom-10 right-10 text-right">
             <span className="text-[#8B3A00] text-[100px] font-['Dialect_PM',sans-serif] font-bold leading-none opacity-15 select-none">
@@ -47,6 +51,10 @@ export function StoryBlock() {
               </div>
             ))}
           </div>
+
+          <a href="#" className="w-fit flex items-center gap-2 border border-[#522c25]/25 text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] px-5 py-2.5 rounded-lg hover:border-[#8B3A00] hover:text-[#8B3A00] hover:bg-[#f6ede3] transition-all">
+            עוד על המותג ←
+          </a>
         </div>
       </div>
     </section>

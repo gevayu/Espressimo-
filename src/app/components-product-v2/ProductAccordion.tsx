@@ -67,7 +67,7 @@ export function ProductAccordion() {
   return (
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
       {/* Specs */}
-      <div className="border-b border-[#e6dad4]">
+      <div id="specs" className="border-b border-[#e6dad4]">
         <button
           onClick={() => toggle("specs")}
           className="w-full flex items-center justify-between px-12 py-6 hover:bg-[#f6ede3] transition-colors group"
@@ -98,7 +98,7 @@ export function ProductAccordion() {
       </div>
 
       {/* FAQ */}
-      <div className="border-b border-[#e6dad4]">
+      <div id="faq" className="border-b border-[#e6dad4]">
         <button
           onClick={() => toggle("faq")}
           className="w-full flex items-center justify-between px-12 py-6 hover:bg-[#f6ede3] transition-colors"
@@ -137,7 +137,7 @@ export function ProductAccordion() {
       </div>
 
       {/* Documents */}
-      <div>
+      <div id="documents">
         <button
           onClick={() => toggle("documents")}
           className="w-full flex items-center justify-between px-12 py-6 hover:bg-[#f6ede3] transition-colors"

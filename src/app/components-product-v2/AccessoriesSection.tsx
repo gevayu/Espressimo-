@@ -1,27 +1,27 @@
 const accessories = [
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-Z10.jpg",
+    image: "https://www.jura.com/-/media/global/images/coffee/big_impressa.jpg",
     name: "פולי קפה JURA Signature Blend",
     desc: "מיזוג ייחודי שפותח במיוחד למכונות JURA — אספרסו עשיר ומלא גוף.",
     price: 'ש"ח 149',
     badge: "מומלץ ביותר",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-ENA-8-דור-3.jpg",
+    image: "https://www.jura.com/-/media/global/images/home-products/maintenance-products/claris-smart-plus/claris_smart_plus_overview_3pc.jpg",
     name: "פילטר CLARIS Smart+ (3 יח')",
     desc: "מסנן המים החכם של JURA — מגן על המכונה מסיד ומשפר את טעם הקפה.",
     price: 'ש"ח 189',
     badge: "חיוני",
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-J8-twin-צבע-שחור-יהלום.jpg",
+    image: "https://api.jura.com/media/global/images/home-products/maintenance-products/cleaning-tabs/overview_3in1cleaningtabs6er_na.jpg",
     name: "ערכת ניקוי JURA (12 טבליות)",
     desc: "טבליות ניקוי רשמיות מ-JURA — תחזוקה מושלמת ואורך חיים מירבי למכונה.",
     price: 'ש"ח 99',
     badge: null,
   },
   {
-    image: "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg",
+    image: "https://www.jura.com/-/media/global/images/home-products/accessories/geschirrkollektion/packshot_esp_glass.jpg",
     name: "כוסות אספרסו JURA Glass Set (2 יח')",
     desc: "כוסות זכוכית עבה מעוצבות ייחודית — שומרות על חום, מציגות את הקרמה בצורה מושלמת.",
     price: 'ש"ח 149',
@@ -71,7 +71,7 @@ export function AccessoriesSection() {
                 <img
                   src={a.image}
                   alt={a.name}
-                  className="w-full h-full object-contain mix-blend-multiply p-8 group-hover:scale-[1.04] transition-transform duration-500"
+                  className="w-full h-full object-contain mix-blend-multiply p-6 group-hover:scale-[1.06] transition-transform duration-500"
                 />
               </div>
 
