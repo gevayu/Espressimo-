@@ -127,7 +127,7 @@ export function ProductReviewsV2() {
           <div className="shrink-0 flex flex-col justify-center gap-3">
             <p className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-60">קנית JURA Z10?</p>
             <button className="border-2 border-[#522c25]/30 text-[#522c25] text-[17px] font-['Dialect_PM',sans-serif] px-6 py-3 rounded-xl hover:border-[#8B3A00] hover:text-[#8B3A00] transition-all">
-              כתבי ביקורת
+              ביקורת חדשה
             </button>
           </div>
         </div>
