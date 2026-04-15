@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { PriceTag } from "../components/PriceTag";
 
 interface PromoPick {
   image: string;
@@ -144,12 +145,8 @@ export function PromoSection() {
                   {promo.description}
                 </p>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-[#8B3A00] text-[24px] font-['Dialect_PM',sans-serif] font-bold">
-                    {promo.salePrice}
-                  </span>
-                  <span className="text-[#522c25] text-[20px] font-['Dialect_PM',sans-serif] opacity-40 line-through">
-                    {promo.originalPrice}
-                  </span>
+                  <PriceTag price={promo.salePrice} className="text-[#8B3A00] text-[24px] font-['Dialect_PM',sans-serif] font-bold" />
+                  <PriceTag price={promo.originalPrice} className="text-[#522c25] text-[20px] font-['Dialect_PM',sans-serif] opacity-40 line-through" />
                 </div>
               </div>
             ))}

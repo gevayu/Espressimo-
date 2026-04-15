@@ -2,7 +2,88 @@
    פונטים לאתר ESPRESSIMO
    ============================================ */
 
-/* --- פונט דיאלקט (Dialect PM) --- */
+/* --- Space Grotesk לתווים לטיניים בלבד (אנגלית, מספרים) --- */
+/* מוגדר תחת אותו שם משפחה כמו Dialect PM עם unicode-range ללטינית */
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj62UUsj.ttf) format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 83%;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsj.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 83%;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsj.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 83%;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj42Vksj.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 83%;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksj.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 83%;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+/* --- פונט דיאלקט (Dialect PM) — עברית + כל שאר התווים שלא כוסו על ידי Space Grotesk --- */
+/* מוגדר עבור כל משקל בנפרד כדי להבטיח התאמה נכונה בכל הדפדפנים */
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
 
 @font-face {
   font-family: 'Dialect PM';
@@ -10,6 +91,52 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
+}
+
+@font-face {
+  font-family: 'Dialect PM';
+  src: url('/fonts/Dialect PM Regular - ttf.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200F, U+200E;
 }
 
 /* --- פונט פולין (Alefalefalef Polin) --- */

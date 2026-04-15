@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { PriceTag } from "./PriceTag";
 
 const related = [
   {
@@ -108,9 +109,9 @@ export function RelatedProductsV2() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-2 mt-2 pt-3 border-t border-[#e6dad4]">
-                  <span className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] font-bold">{p.price}</span>
+                  <PriceTag price={p.price} className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] font-bold" />
                   {p.oldPrice && (
-                    <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-30 line-through">{p.oldPrice}</span>
+                    <PriceTag price={p.oldPrice} className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-30 line-through" />
                   )}
                 </div>
               </div>

@@ -1,3 +1,5 @@
+import { PriceTag } from "./PriceTag";
+
 const accessories = [
   {
     image: "https://www.jura.com/-/media/global/images/coffee/big_impressa.jpg",
@@ -48,8 +50,8 @@ export function AccessoriesSection() {
             <p className="text-[14px] font-['Dialect_PM',sans-serif] opacity-75 mb-1">חבילת ה-Starter Bundle</p>
             <p className="text-[26px] font-['Dialect_PM',sans-serif] font-bold leading-tight">פולים + פילטר + ניקוי</p>
             <p className="text-[20px] font-['Dialect_PM',sans-serif] mt-2">
-              <span className="opacity-60 line-through text-[17px] ml-2">ש"ח 437</span>
-              ש"ח 349
+              <PriceTag price='ש"ח 437' className="opacity-60 line-through text-[17px] ml-2" />
+              <PriceTag price='ש"ח 349' />
             </p>
           </div>
         </div>
@@ -84,7 +86,7 @@ export function AccessoriesSection() {
                   {a.desc}
                 </p>
                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-[#e6dad4]">
-                  <span className="text-[#522c25] text-[24px] font-['Dialect_PM',sans-serif] font-bold">{a.price}</span>
+                  <PriceTag price={a.price} className="text-[#522c25] text-[24px] font-['Dialect_PM',sans-serif] font-bold" />
                   <button className="bg-[#8B3A00] hover:bg-[#a34500] text-white text-[15px] font-['Dialect_PM',sans-serif] px-4 py-2 rounded-lg transition-colors">
                     הוסף לסל
                   </button>

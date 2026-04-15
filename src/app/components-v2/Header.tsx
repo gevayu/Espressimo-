@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { PriceTag } from "../components/PriceTag";
 import imgLogo from "../../imports/HomePage-2/fb863a6f83f0deff3e89866fe19b2a6231928be4.png";
 const imgMachine1 = "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-E8-דור-3.jpg";
 const imgMachine2 = "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg";
@@ -125,9 +126,7 @@ export function Header() {
                           <p className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] opacity-55 mt-1">
                             {item.sub}
                           </p>
-                          <p className="text-[#c46500] text-[19px] font-['Dialect_PM',sans-serif] font-bold mt-1">
-                            {item.price}
-                          </p>
+                          <PriceTag price={item.price} className="text-[#c46500] text-[19px] font-['Dialect_PM',sans-serif] font-bold mt-1" />
                         </div>
                       </a>
                     ))}

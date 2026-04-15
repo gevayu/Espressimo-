@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart, Star } from "lucide-react";
+import { PriceTag } from "./PriceTag";
 
 export function StickyBar() {
   const [visible, setVisible] = useState(false);
@@ -64,8 +65,8 @@ export function StickyBar() {
 
         {/* Price */}
         <div className="flex items-baseline gap-3">
-          <span className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] font-bold">ש"ח 9,999</span>
-          <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-30 line-through">ש"ח 11,499</span>
+          <PriceTag price='ש"ח 9,999' className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] font-bold" />
+          <PriceTag price='ש"ח 11,499' className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-30 line-through" />
         </div>
 
         {/* CTA */}

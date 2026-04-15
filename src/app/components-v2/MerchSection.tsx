@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { PriceTag } from "../components/PriceTag";
 
 interface Pick {
   image: string;
@@ -90,9 +91,7 @@ function ProductCarousel({ title, subtitle, picks, slideDelay = 0 }: ProductCaro
                   {pick.drink}
                 </p>
                 {pick.price && (
-                  <p className="text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] font-bold mt-2">
-                    {pick.price}
-                  </p>
+                  <PriceTag price={pick.price} className="text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] font-bold mt-2" />
                 )}
               </div>
             ))}
