@@ -1,64 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-const specs = [
-  { label: "דגם", value: "JURA Z10" },
-  { label: "מחזיק קפה", value: "גריינדר קונוס מקצועי מובנה" },
-  { label: "מספר ספציאליטי", value: "32 משקאות" },
-  { label: "מסך", value: "מגע צבעוני 4.3 אינץ'" },
-  { label: "לחץ משאבה", value: "15 בר" },
-  { label: "הספק", value: "1,450W" },
-  { label: "מיכל מים", value: "2.4 ליטר" },
-  { label: "מיכל פולים", value: "280 גרם" },
-  { label: "טמפרטורת קפה", value: "3 רמות (60–65–70°C)" },
-  { label: "Wi-Fi / Bluetooth", value: "כן / כן" },
-  { label: "אפליקציה", value: "J.O.E – JURA Operating Experience" },
-  { label: "מד קו קפה מרבי", value: "70 כוסות ביום" },
-  { label: "רוחב", value: "280 מ\"מ" },
-  { label: "גובה", value: "355 מ\"מ" },
-  { label: "עומק", value: "450 מ\"מ" },
-  { label: "משקל", value: "11.2 ק\"ג" },
-  { label: "צבעים זמינים", value: "שחור יהלום / כסף פלטינום / לבן קרם" },
-  { label: "אחריות", value: "2 שנה (ניתן להאריך ל-5)" },
-];
-
-const faq = [
-  {
-    q: "האם JURA Z10 כוללת גורסת קפה?",
-    a: "כן. המכונה כוללת גריינדר קונוס מקצועי מובנה עם 30 דרגות גסות. ניתן גם להשתמש בקפה טחון מראש.",
-  },
-  {
-    q: "כמה זמן לוקח להכין כוס קפה?",
-    a: "אספרסו — כ-25 שניות. לאטה מקיאטו — כ-75 שניות. החימום הראשוני לוקח כ-3 שניות בשל מערכת התרמובלוק הכפולה.",
-  },
-  {
-    q: "האם צריך להתחבר ל-Wi-Fi?",
-    a: "לא חובה. המכונה פועלת מצוין ללא חיבור רשת. Wi-Fi ו-Bluetooth מאפשרים הפעלה מרחוק דרך אפליקציית J.O.E ועדכוני קושחה אוטומטיים.",
-  },
-  {
-    q: "מה כולל שירות התקנה והדגמה בבית?",
-    a: "טכנאי מוסמך מגיע לביתכם, מתקין את המכונה, מגדיר אותה לפי הטעם שלכם, ומדגים את כל הפונקציות. השירות ניתן ללא עלות נוספת ברכישה ישירה.",
-  },
-  {
-    q: "האם ניתן להשתמש בקפסולות?",
-    a: "לא. JURA Z10 מיועדת לפולי קפה שלמים או לקפה טחון. המכונה אינה תואמת לקפסולות.",
-  },
-  {
-    q: "מה ההבדל בין חידוש מהמפעל לבין חדש?",
-    a: "מכונה מחודשת עברה בדיקה מקיפה ותיקון בידי טכנאים מוסמכים של JURA, מגיעה עם אחריות מלאה של שנה (ניתן להאריך), ועשויה לחסוך 20–35% ממחיר המכונה החדשה.",
-  },
-];
-
-const documents = [
-  { name: "מדריך למשתמש — JURA Z10 (עברית)", size: "PDF · 4.2 MB" },
-  { name: "מפרט טכני מלא", size: "PDF · 1.1 MB" },
-  { name: "מדריך ניקוי ותחזוקה", size: "PDF · 2.8 MB" },
-  { name: "מדריך התחלה מהירה", size: "PDF · 0.9 MB" },
-];
+import type { Product } from "../data/products";
 
 type SectionKey = "specs" | "faq" | "documents";
 
-export function ProductAccordion() {
+export function ProductAccordion({ product }: { product: Product }) {
+  const { specs, faq, documents } = product;
   const [open, setOpen] = useState<SectionKey | null>("specs");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 

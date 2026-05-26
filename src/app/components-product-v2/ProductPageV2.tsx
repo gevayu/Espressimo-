@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import { Header } from "../components-v2/Header";
 import { Footer } from "../components-v2/Footer";
 import { StickyBar } from "./StickyBar";
@@ -12,22 +13,26 @@ import { ProductAccordion } from "./ProductAccordion";
 import { ProductReviewsV2 } from "./ProductReviewsV2";
 import { RelatedProductsV2 } from "./RelatedProductsV2";
 import { MessageCircle, Accessibility } from "lucide-react";
+import { getProduct } from "../data/products";
 
 export function ProductPageV2() {
+  const { productId } = useParams();
+  const product = getProduct(productId);
+
   return (
-    <div className="min-h-screen bg-[#fff9f2]">
+    <div className="min-h-screen bg-[#fff9f2]" key={product.id}>
       <Header />
-      <StickyBar />
-      <ProductHero onScrolledPast={() => {}} />
-      <FeaturesSection />
-      <FeatureBlocks />
-      <RecipesSection />
-      <StoryBlock />
-      <AccessoriesSection />
-      <ProductAccordion />
-      <ProductReviewsV2 />
-      <RelatedProductsV2 />
-      <HighlightsStrip />
+      <StickyBar product={product} />
+      <ProductHero onScrolledPast={() => {}} product={product} />
+      <FeaturesSection product={product} />
+      <FeatureBlocks product={product} />
+      <RecipesSection product={product} />
+      <StoryBlock product={product} />
+      <AccessoriesSection product={product} />
+      <ProductAccordion product={product} />
+      <ProductReviewsV2 product={product} />
+      <RelatedProductsV2 product={product} />
+      <HighlightsStrip product={product} />
       <Footer />
 
       {/* WhatsApp — bottom right */}

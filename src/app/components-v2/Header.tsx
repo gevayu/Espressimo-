@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronDown, Menu, X, Search, User as UserIcon, ShoppingCart, Phone } from "lucide-react";
 import { PriceTag } from "../components/PriceTag";
-import imgLogo from "../../imports/HomePage-2/fb863a6f83f0deff3e89866fe19b2a6231928be4.png";
+const imgLogo = "/picts/logo.png";
 const imgMachine1 = "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-E8-דור-3.jpg";
 const imgMachine2 = "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg";
 const imgMachine3 = "https://espressimo.co.il/wp-content/uploads/2025/02/%D7%9E%D7%9B%D7%95%D7%A0%D7%AA-%D7%A7%D7%A4%D7%94-%D7%99%D7%93%D7%A0%D7%99%D7%AA-ECM-Synchronika-II.jpg";
@@ -32,15 +32,69 @@ const featured = [
   { src: imgMachine3, label: "ECM Synchronika", sub: "מכונת קפה ידנית", price: 'ש"ח 12,900' },
 ];
 
+type MobileItem =
+  | { label: string; href: string }
+  | { label: string; sub: { name: string; tag: string }[] };
+
+const mobileNav: MobileItem[] = [
+  { label: "עלינו", href: "/v2/about" },
+  { label: "המעבדה", href: "#" },
+  { label: "מכונות קפה אוטומטיות", sub: brandGroups[0].brands },
+  { label: "מכונות קפה ידניות", sub: brandGroups[1].brands },
+  { label: "מטחנות קפה", href: "#" },
+  { label: "טרייד אין", href: "#" },
+  { label: "אביזרים", href: "#" },
+  { label: "תחזוקת מכונות", href: "#" },
+  { label: "סינון מים", href: "#" },
+  { label: "צור קשר", href: "#" },
+];
+
 const navLink = "px-3 py-2 text-[#522c25] text-[22px] tracking-[0.7px] uppercase font-['Dialect_PM',sans-serif]";
 const separator = <span className="text-[#522c25] opacity-30">|</span>;
 
 export function Header() {
   const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openSub, setOpenSub] = useState<string | null>(null);
+
+  // Lock body scroll while the fullscreen mobile menu is open.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
+  // Close on Escape.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
-      <div className="flex items-center h-[68px]">
+      {/* ── Mobile top bar (lg and below) ── */}
+      <div className="flex lg:hidden items-center justify-between h-[60px] px-4">
+        <a href="/v2" className="flex items-center">
+          <img src={imgLogo} alt="אספרסימו" className="h-9 w-auto" />
+        </a>
+        <button
+          onClick={() => setMobileOpen(true)}
+          aria-label="פתח תפריט"
+          className="w-11 h-11 flex items-center justify-center text-[#522c25] hover:bg-[#f6ede3] rounded-lg transition-colors"
+        >
+          <Menu size={28} strokeWidth={1.8} />
+        </button>
+      </div>
+
+      {/* ── Desktop bar (lg and up) — unchanged ── */}
+      <div className="hidden lg:flex items-center h-[68px]">
         {/* Logo */}
         <div className="flex items-center px-6 border-l border-[#e6dad4] h-full">
           <img src={imgLogo} alt="אספרסימו" className="h-11 w-auto" />
@@ -48,7 +102,7 @@ export function Header() {
 
         {/* Navigation */}
         <nav className="flex items-center border-l border-[#e6dad4] h-full px-4 relative">
-          <a href="#" className={navLink}>עלינו</a>
+          <a href="/v2/about" className={navLink}>עלינו</a>
           {separator}
           <a href="#" className={navLink}>המעבדה</a>
           {separator}
@@ -70,11 +124,9 @@ export function Header() {
                 dir="rtl"
                 style={{ width: "1100px" }}
               >
-                {/* Top accent bar */}
                 <div className="h-[3px] w-full" style={{ background: "linear-gradient(to left, #A35200, #FFB84D)" }} />
 
                 <div className="flex">
-                  {/* Brand columns */}
                   <div className="flex-1 p-10 flex gap-12">
                     {brandGroups.map((group) => (
                       <div key={group.label} className="flex-1">
@@ -102,10 +154,8 @@ export function Header() {
                     ))}
                   </div>
 
-                  {/* Divider */}
                   <div className="w-px bg-[#e6dad4] my-6" />
 
-                  {/* Featured products */}
                   <div className="w-[360px] p-8 bg-[#f6ede3] flex flex-col gap-2">
                     <p className="text-[#522c25] text-[13px] tracking-[0.15em] uppercase font-['Dialect_PM',sans-serif] opacity-40 mb-3">
                       מומלצים עכשיו
@@ -131,7 +181,6 @@ export function Header() {
                       </a>
                     ))}
 
-                    {/* CTA */}
                     <a
                       href="#"
                       className="mt-4 block text-center bg-[#8B3A00] text-white text-[20px] font-['Dialect_PM',sans-serif] tracking-[0.05em] py-3 rounded-lg hover:bg-[#a34500] transition-colors"
@@ -141,7 +190,6 @@ export function Header() {
                   </div>
                 </div>
 
-                {/* Bottom strip */}
                 <div className="border-t border-[#e6dad4] px-10 py-4 flex items-center gap-6 bg-[#fdf6ee]">
                   <span className="text-[#522c25] text-[17px] font-['Dialect_PM',sans-serif] opacity-50">
                     לא בטוחים איזו מכונה מתאימה לכם?
@@ -185,6 +233,131 @@ export function Header() {
           </a>
         </div>
       </div>
+
+      {/* ── Fullscreen mobile menu ── */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-[100] bg-[#fff9f2] flex flex-col"
+          dir="rtl"
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Header strip */}
+          <div className="flex items-center justify-between h-[60px] px-4 border-b border-[#e6dad4] shrink-0">
+            <a href="/v2" onClick={() => setMobileOpen(false)} className="flex items-center">
+              <img src={imgLogo} alt="אספרסימו" className="h-9 w-auto" />
+            </a>
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="סגור תפריט"
+              className="w-11 h-11 flex items-center justify-center text-[#522c25] hover:bg-[#f6ede3] rounded-lg transition-colors"
+            >
+              <X size={28} strokeWidth={1.8} />
+            </button>
+          </div>
+
+          {/* Scrollable content */}
+          <div className="flex-1 overflow-y-auto">
+            {/* Search */}
+            <div className="px-5 py-4 border-b border-[#e6dad4]">
+              <div className="flex items-center gap-3 bg-[#f6ede3] border border-[#e6dad4] rounded-xl px-4 py-3">
+                <Search size={20} className="text-[#522c25] opacity-50 shrink-0" />
+                <input
+                  type="search"
+                  placeholder="חיפוש מכונות, פולים, אביזרים…"
+                  className="flex-1 bg-transparent outline-none text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] placeholder:opacity-50"
+                />
+              </div>
+            </div>
+
+            {/* Nav list */}
+            <nav className="flex flex-col">
+              {mobileNav.map((item) => {
+                if ("sub" in item) {
+                  const isOpen = openSub === item.label;
+                  return (
+                    <div key={item.label} className="border-b border-[#e6dad4]">
+                      <button
+                        onClick={() => setOpenSub(isOpen ? null : item.label)}
+                        className="w-full flex items-center justify-between px-5 py-4 text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] hover:bg-[#f6ede3] transition-colors"
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          size={20}
+                          className={`text-[#522c25] opacity-60 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <ul className="bg-[#f6ede3] px-2 py-2 flex flex-col">
+                          {item.sub.map((b) => (
+                            <li key={b.name}>
+                              <a
+                                href="#"
+                                onClick={() => setMobileOpen(false)}
+                                className="flex items-center justify-between px-4 py-3 text-[#522c25] text-[19px] font-['Dialect_PM',sans-serif] rounded-lg hover:bg-[#ede0d4] transition-colors"
+                              >
+                                <span>{b.name}</span>
+                                {b.tag && (
+                                  <span className="text-[12px] bg-[#c46500]/15 text-[#c46500] px-2.5 py-0.5 rounded-full font-['Dialect_PM',sans-serif]">
+                                    {b.tag}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                }
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="px-5 py-4 text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] border-b border-[#e6dad4] hover:bg-[#f6ede3] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </nav>
+
+            {/* Account + Cart */}
+            <div className="px-5 py-5 grid grid-cols-2 gap-3 border-b border-[#e6dad4]">
+              <a
+                href="#"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 border border-[#e6dad4] rounded-xl py-3 text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] hover:bg-[#f6ede3] transition-colors"
+              >
+                <UserIcon size={18} className="text-[#c46500]" /> חשבון
+              </a>
+              <a
+                href="#"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 border border-[#e6dad4] rounded-xl py-3 text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] hover:bg-[#f6ede3] transition-colors"
+              >
+                <ShoppingCart size={18} className="text-[#c46500]" /> עגלה (0)
+              </a>
+            </div>
+
+            {/* Contact CTA */}
+            <div className="px-5 py-6 flex flex-col gap-3">
+              <a
+                href="https://wa.me/9720585335035"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#8B3A00] hover:bg-[#a34500] text-white text-[20px] font-['Dialect_PM',sans-serif] tracking-[0.04em] py-3.5 rounded-xl transition-colors"
+              >
+                <Phone size={18} /> דברו איתנו
+              </a>
+              <p className="text-center text-[#522c25] text-[15px] font-['Dialect_PM',sans-serif] opacity-50">
+                אור יהודה · בתיאום מראש
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

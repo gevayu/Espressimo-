@@ -1,57 +1,4 @@
-const recipes = [
-  {
-    name: "אספרסו קלאסי",
-    image: "https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800",
-    time: "25 שנ'",
-    difficulty: "קל",
-    params: [
-      { label: "כמות קפה", value: "18 גר'" },
-      { label: "תפוקה", value: "40 מ\"ל" },
-      { label: "טמפרטורה", value: "93°C" },
-      { label: "לחץ", value: "9 בר" },
-    ],
-    desc: "אספרסו כפול עשיר, עם קרמה עבה ואיזון מושלם בין מתיקות לחומציות.",
-  },
-  {
-    name: "קפה לאטה",
-    image: "https://images.pexels.com/photos/414605/pexels-photo-414605.jpeg?auto=compress&cs=tinysrgb&w=800",
-    time: "45 שנ'",
-    difficulty: "בינוני",
-    params: [
-      { label: "כמות קפה", value: "14 גר'" },
-      { label: "אספרסו", value: "35 מ\"ל" },
-      { label: "חלב מוקצף", value: "180 מ\"ל" },
-      { label: "טמפרטורה", value: "65°C" },
-    ],
-    desc: "שכבת אספרסו עמוקה מתחת לחלב עשיר ורך — הדרך הנכונה להתחיל בוקר.",
-  },
-  {
-    name: "קולד ברו",
-    image: "https://images.pexels.com/photos/11100423/pexels-photo-11100423.jpeg?auto=compress&cs=tinysrgb&w=800",
-    time: "2 דק'",
-    difficulty: "קל",
-    params: [
-      { label: "כמות קפה", value: "22 גר'" },
-      { label: "תפוקה", value: "120 מ\"ל" },
-      { label: "טמפרטורה", value: "קר" },
-      { label: "קרח", value: "150 גר'" },
-    ],
-    desc: "JURA Z10 מכינה Cold Brew ישירות — מיצוי על קרח בטמפרטורה נמוכה לטעם חלק ונקי.",
-  },
-  {
-    name: "קפוצ'ינו",
-    image: "https://images.pexels.com/photos/9249368/pexels-photo-9249368.jpeg?auto=compress&cs=tinysrgb&w=800",
-    time: "40 שנ'",
-    difficulty: "קל",
-    params: [
-      { label: "כמות קפה", value: "14 גר'" },
-      { label: "אספרסו", value: "30 מ\"ל" },
-      { label: "קצף חלב", value: "90 מ\"ל" },
-      { label: "טמפרטורה", value: "68°C" },
-    ],
-    desc: "שליש אספרסו, שליש חלב, שליש קצף — הפרופורציות הקלאסיות עם מגע Fine Foam של JURA.",
-  },
-];
+import type { Product } from "../data/products";
 
 const difficultyColor: Record<string, string> = {
   קל: "#2e7d32",
@@ -59,7 +6,7 @@ const difficultyColor: Record<string, string> = {
   מתקדם: "#8B3A00",
 };
 
-export function RecipesSection() {
+export function RecipesSection({ product }: { product: Product }) {
   return (
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
       <div className="px-12 py-14">
@@ -67,11 +14,11 @@ export function RecipesSection() {
           מתכוני הכנה ממומלצים
         </h2>
         <p className="text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] opacity-55 mb-12">
-          JURA Z10 תכין לכם את כל אלה — בלחיצה אחת
+          {product.recipesSubtitle}
         </p>
 
         <div className="grid grid-cols-4 gap-0 border border-[#e6dad4] overflow-hidden rounded-xl">
-          {recipes.map((r, i) => (
+          {product.recipes.map((r, i) => (
             <div
               key={i}
               className="group border-l border-[#e6dad4] first:border-l-0 flex flex-col hover:bg-[#f6ede3] transition-colors duration-200"

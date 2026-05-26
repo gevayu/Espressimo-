@@ -34,16 +34,31 @@ const repeated = [...logos, ...logos, ...logos, ...logos];
 
 export function BrandsStrip() {
   return (
-    <section
-      style={{
-        background: "#fff9f2",
-        borderBottom: "1px solid #e6dad4",
-        height: "162px",
-        position: "relative",
-        overflow: "hidden",
-        direction: "ltr",
-      }}
-    >
+    <section style={{ background: "#fff9f2", borderBottom: "1px solid #e6dad4", direction: "rtl" }}>
+      {/* Header */}
+      <div className="px-9 pt-7 pb-5 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <h2 className="text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em]">
+            המותגים שאנחנו מייצגים
+          </h2>
+          <span className="bg-[#f6ede3] border border-[#e6dad4] text-[#8B3A00] text-[16px] font-['Dialect_PM',sans-serif] px-3 py-0.5 rounded-full">
+            {logos.length} מותגים
+          </span>
+        </div>
+        <p className="text-[#522c25] text-[17px] font-['Dialect_PM',sans-serif] opacity-45">
+          מכונות קפה, מטחנות, פולים ואביזרים
+        </p>
+      </div>
+
+      {/* Scrolling logos */}
+      <div
+        style={{
+          height: "110px",
+          position: "relative",
+          overflow: "hidden",
+          direction: "ltr",
+        }}
+      >
       <style>{`
         @keyframes brandsScroll {
           from { transform: translateX(0px); }
@@ -88,6 +103,7 @@ export function BrandsStrip() {
             <img src={logo.src} alt={logo.alt} />
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

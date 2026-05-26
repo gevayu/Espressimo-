@@ -1,16 +1,7 @@
 import { useState, useRef } from "react";
 import { PriceTag } from "./PriceTag";
 import { ChevronRight, ChevronLeft, ZoomIn, Phone, ShoppingCart, Truck, Shield, RotateCcw, Lock } from "lucide-react";
-
-const images = [
-  "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-Z10-800x800.jpg",
-  "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-טוחנת-יורה-JURA-Z10-800x800.jpg",
-  "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-JURA-Z10-800x800.jpg",
-  "https://espressimo.co.il/wp-content/uploads/2024/12/Jura-Z10-800x800.jpg",
-  "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-טחנת-JURA-Z10-800x800.jpg",
-  "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-צבע-לבן-יהלום-800x800.jpg",
-];
-
+import type { Product } from "../data/products";
 
 const trust = [
   { icon: Truck, text: "משלוח חינם" },
@@ -20,11 +11,14 @@ const trust = [
 ];
 
 
-export function ProductHero({ onScrolledPast }: { onScrolledPast: (v: boolean) => void }) {
+export function ProductHero({ onScrolledPast, product }: { onScrolledPast: (v: boolean) => void; product: Product }) {
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState(false);
   const [qty, setQty] = useState(1);
   const heroRef = useRef<HTMLDivElement>(null);
+
+  const images = product.gallery;
+  const extraBadges = product.heroBadges.filter((b) => b !== product.stockStatus);
 
   const prev = () => setActive((a) => Math.max(a - 1, 0));
   const next = () => setActive((a) => Math.min(a + 1, images.length - 1));
@@ -40,7 +34,7 @@ export function ProductHero({ onScrolledPast }: { onScrolledPast: (v: boolean) =
           <img
             key={active}
             src={images[active]}
-            alt={`JURA Z10 תמונה ${active + 1}`}
+            alt={`${product.name} תמונה ${active + 1}`}
             className={`w-full h-full object-cover transition-transform duration-300 ${zoom ? "scale-150 cursor-zoom-out" : "cursor-zoom-in"}`}
             onClick={() => setZoom(!zoom)}
             style={{ animation: "heroTextEntry 0.35s ease-out forwards" }}
@@ -90,30 +84,32 @@ export function ProductHero({ onScrolledPast }: { onScrolledPast: (v: boolean) =
 
         {/* Eyebrow */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-[#c46500] text-[20px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.08em] uppercase">JURA</span>
+          <span className="text-[#c46500] text-[20px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.08em] uppercase">{product.brand}</span>
           <span className="w-1 h-1 rounded-full bg-[#d4c4bc]" />
-          <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-55">מכונת קפה אוטומטית</span>
-          <span className="bg-[#8B3A00] text-white text-[14px] font-['Dialect_PM',sans-serif] px-3 py-0.5 rounded-full">במלאי</span>
-          <span className="bg-[#c46500]/15 text-[#c46500] text-[14px] font-['Dialect_PM',sans-serif] px-3 py-0.5 rounded-full">משלוח חינם</span>
+          <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-55">{product.categoryType}</span>
+          <span className="bg-[#8B3A00] text-white text-[14px] font-['Dialect_PM',sans-serif] px-3 py-0.5 rounded-full">{product.stockStatus}</span>
+          {extraBadges.map((b) => (
+            <span key={b} className="bg-[#c46500]/15 text-[#c46500] text-[14px] font-['Dialect_PM',sans-serif] px-3 py-0.5 rounded-full">{b}</span>
+          ))}
         </div>
 
         {/* Title */}
         <div>
-          <h1 className="text-[#522c25] text-[58px] leading-[1.05] font-['Dialect_PM',sans-serif] font-bold tracking-[0.03em]">JURA Z10</h1>
+          <h1 className="text-[#522c25] text-[58px] leading-[1.05] font-['Dialect_PM',sans-serif] font-bold tracking-[0.03em]">{product.name}</h1>
           <p className="text-[#522c25] text-[24px] leading-[1.5] font-['Dialect_PM',sans-serif] opacity-60 mt-2">
-            מכונת אספרסו אוטומטית מקצועית לבית, במחיר של מכונה ביתית.
+            {product.subtitle}
           </p>
         </div>
 
         {/* Price */}
         <div className="flex items-baseline gap-4 border-y border-[#e6dad4] py-5">
-          <PriceTag price='ש"ח 9,999' className="text-[#522c25] text-[54px] font-['Dialect_PM',sans-serif] font-bold leading-none" />
-          <PriceTag price='ש"ח 11,499' className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] opacity-30 line-through" />
+          <PriceTag price={product.price} className="text-[#522c25] text-[54px] font-['Dialect_PM',sans-serif] font-bold leading-none" />
+          <PriceTag price={product.oldPrice} className="text-[#522c25] text-[26px] font-['Dialect_PM',sans-serif] opacity-30 line-through" />
           <span className="bg-[#8B3A00]/10 text-[#8B3A00] text-[16px] font-['Dialect_PM',sans-serif] font-bold px-3 py-1 rounded-lg flex items-baseline gap-1">
-            חיסכון <PriceTag price='ש"ח 1,500' />
+            חיסכון <PriceTag price={product.savings} />
           </span>
           <span className="bg-[#c46500]/10 text-[#c46500] text-[16px] font-['Dialect_PM',sans-serif] font-bold px-3 py-1 rounded-lg">
-            עד 12 תשלומים
+            {product.paymentsText}
           </span>
         </div>
 
@@ -121,11 +117,11 @@ export function ProductHero({ onScrolledPast }: { onScrolledPast: (v: boolean) =
         <div className="bg-[#f6ede3] rounded-xl p-4 flex gap-6">
           <div className="flex flex-col gap-1">
             <span className="text-[#522c25] text-[14px] font-['Dialect_PM',sans-serif] opacity-50">זמן אספקה משוער</span>
-            <span className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] font-bold">3–5 ימי עסקים</span>
+            <span className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] font-bold">{product.deliveryTime}</span>
           </div>
           <div className="border-r border-[#e6dad4] pr-6 flex flex-col gap-1">
             <span className="text-[#522c25] text-[14px] font-['Dialect_PM',sans-serif] opacity-50">איסוף עצמי</span>
-            <span className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] font-bold">זמין באור יהודה</span>
+            <span className="text-[#522c25] text-[16px] font-['Dialect_PM',sans-serif] font-bold">{product.pickupLocation}</span>
           </div>
         </div>
 

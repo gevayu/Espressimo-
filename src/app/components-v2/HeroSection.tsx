@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import imgHero1 from "../../imports/HomePage-2/cad2bc5d0fa327ce749e88df3bdc57cd9a4f6413.png";
 const imgHero2 = "/picts/stuff3.jpg";
 const imgHero3 = "/picts/banner2.jpg";
-import imgLogo from "../../imports/HomePage-2/43b62430074079a9654dbf1140aa0ddcf45b556e.png";
+const imgLogo = "/picts/logo.png";
 
 const banners = [
   {
@@ -90,12 +90,17 @@ export function HeroSection() {
             <p className="font-['Dialect_PM',sans-serif] text-white/90 text-[25px] leading-[2] mb-8">
               {banner.subtitle}
             </p>
-            <button
-              className="px-7 py-3 rounded text-[32px] tracking-[0.07em] uppercase font-['Dialect_PM',sans-serif] text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: banner.accent }}
-            >
-              {banner.cta}
-            </button>
+            <div className="flex items-center gap-4 flex-wrap">
+              <button
+                className="px-9 py-4 rounded-xl text-[26px] tracking-[0.05em] font-['Dialect_PM',sans-serif] font-bold text-white shadow-lg hover:brightness-110 transition-all"
+                style={{ backgroundColor: banner.accent }}
+              >
+                {banner.cta}
+              </button>
+              <button className="px-9 py-4 rounded-xl text-[26px] tracking-[0.05em] font-['Dialect_PM',sans-serif] font-bold text-white border-2 border-white/70 hover:bg-white/15 transition-all">
+                דברו איתנו
+              </button>
+            </div>
           </div>
         </div>
 

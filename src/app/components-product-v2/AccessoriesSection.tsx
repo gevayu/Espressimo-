@@ -1,37 +1,8 @@
 import { PriceTag } from "./PriceTag";
+import type { Product } from "../data/products";
 
-const accessories = [
-  {
-    image: "https://www.jura.com/-/media/global/images/coffee/big_impressa.jpg",
-    name: "פולי קפה JURA Signature Blend",
-    desc: "מיזוג ייחודי שפותח במיוחד למכונות JURA — אספרסו עשיר ומלא גוף.",
-    price: 'ש"ח 149',
-    badge: "מומלץ ביותר",
-  },
-  {
-    image: "https://www.jura.com/-/media/global/images/home-products/maintenance-products/claris-smart-plus/claris_smart_plus_overview_3pc.jpg",
-    name: "פילטר CLARIS Smart+ (3 יח')",
-    desc: "מסנן המים החכם של JURA — מגן על המכונה מסיד ומשפר את טעם הקפה.",
-    price: 'ש"ח 189',
-    badge: "חיוני",
-  },
-  {
-    image: "https://api.jura.com/media/global/images/home-products/maintenance-products/cleaning-tabs/overview_3in1cleaningtabs6er_na.jpg",
-    name: "ערכת ניקוי JURA (12 טבליות)",
-    desc: "טבליות ניקוי רשמיות מ-JURA — תחזוקה מושלמת ואורך חיים מירבי למכונה.",
-    price: 'ש"ח 99',
-    badge: null,
-  },
-  {
-    image: "https://www.jura.com/-/media/global/images/home-products/accessories/geschirrkollektion/packshot_esp_glass.jpg",
-    name: "כוסות אספרסו JURA Glass Set (2 יח')",
-    desc: "כוסות זכוכית עבה מעוצבות ייחודית — שומרות על חום, מציגות את הקרמה בצורה מושלמת.",
-    price: 'ש"ח 149',
-    badge: null,
-  },
-];
-
-export function AccessoriesSection() {
+export function AccessoriesSection({ product }: { product: Product }) {
+  const { bundle } = product;
   return (
     <section className="bg-[#f6ede3] border-b border-[#e6dad4]" dir="rtl">
       <div className="px-12 py-14">
@@ -41,23 +12,23 @@ export function AccessoriesSection() {
               משלימים את החוויה
             </h2>
             <p className="text-[#522c25] text-[22px] font-['Dialect_PM',sans-serif] opacity-55">
-              אביזרים ומתכלים שממיצים את JURA Z10
+              {product.accessoriesSubtitle}
             </p>
           </div>
 
           {/* Bundle offer */}
           <div className="bg-[#8B3A00] text-white rounded-2xl px-8 py-5 text-left shrink-0">
-            <p className="text-[14px] font-['Dialect_PM',sans-serif] opacity-75 mb-1">חבילת ה-Starter Bundle</p>
-            <p className="text-[26px] font-['Dialect_PM',sans-serif] font-bold leading-tight">פולים + פילטר + ניקוי</p>
+            <p className="text-[14px] font-['Dialect_PM',sans-serif] opacity-75 mb-1">{bundle.eyebrow}</p>
+            <p className="text-[26px] font-['Dialect_PM',sans-serif] font-bold leading-tight">{bundle.title}</p>
             <p className="text-[20px] font-['Dialect_PM',sans-serif] mt-2">
-              <PriceTag price='ש"ח 437' className="opacity-60 line-through text-[17px] ml-2" />
-              <PriceTag price='ש"ח 349' />
+              <PriceTag price={bundle.oldPrice} className="opacity-60 line-through text-[17px] ml-2" />
+              <PriceTag price={bundle.price} />
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-4 gap-0 border border-[#e6dad4] overflow-hidden rounded-xl bg-[#fff9f2]">
-          {accessories.map((a, i) => (
+          {product.accessories.map((a, i) => (
             <div
               key={i}
               className="group border-l border-[#e6dad4] first:border-l-0 flex flex-col hover:bg-[#f6ede3] transition-colors duration-200 relative"

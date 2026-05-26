@@ -88,13 +88,31 @@ export function PromoSection() {
 
   return (
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
-      <div className="p-9 border-b border-[#e6dad4] flex items-center gap-5">
-        <h2 className="text-[53px] leading-[41px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em]">
-          <span className="text-[#c46500]">המבצעים שלנו</span>
-        </h2>
-        <span className="bg-[#8B3A00] text-white text-[22px] font-['Dialect_PM',sans-serif] tracking-[0.05em] px-4 py-1.5 rounded-full">
-          מחירים מוגבלים בזמן
-        </span>
+      <div className="p-9 border-b border-[#e6dad4] flex items-center justify-between">
+        <div className="flex items-center gap-5">
+          <h2 className="text-[53px] leading-[41px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em]">
+            <span className="text-[#c46500]">המבצעים שלנו</span>
+          </h2>
+          <span className="bg-[#8B3A00] text-white text-[22px] font-['Dialect_PM',sans-serif] tracking-[0.05em] px-4 py-1.5 rounded-full">
+            מחירים מוגבלים בזמן
+          </span>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-45">
+            {offset + 1}–{Math.min(offset + VISIBLE, promos.length)} מתוך {promos.length} מוצרים
+          </span>
+          <div className="flex gap-1.5">
+            {Array.from({ length: promos.length - VISIBLE + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setOffset(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === offset ? "w-6 bg-[#c46500]" : "w-1.5 bg-[#d4c4bc] hover:bg-[#c46500]/50"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="flex items-stretch">
@@ -129,7 +147,7 @@ export function PromoSection() {
                     <img
                       src={promo.image}
                       alt={promo.name}
-                      className="w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="w-full h-full object-contain mix-blend-multiply p-4 transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-300 rounded-lg" />
                   </div>

@@ -1,81 +1,12 @@
 import { useState } from "react";
 import { Star, ThumbsUp } from "lucide-react";
+import type { Product } from "../data/products";
 
-const reviews = [
-  {
-    name: "אורן ל.",
-    date: "15 במרץ 2026",
-    rating: 5,
-    title: "הטוב ביותר שיש",
-    body: "קניתי אחרי הרבה מחקר ואני לא מתחרט. הקפה שיוצא ממנה טוב יותר ממה שקיבלתי ברוב בתי הקפה. P.E.P באמת עושה הבדל.",
-    helpful: 14,
-    verified: true,
-  },
-  {
-    name: "מיכל ד.",
-    date: "2 בפברואר 2026",
-    rating: 5,
-    title: "קצף חלב מדהים",
-    body: "אני שותה לאטה בכל בוקר ומהיום אני לא יכולה בלי JURA. הקצף שמתקבל ממערכת Fine Foam עדין ונוח — בדיוק כמו בבית קפה איכותי.",
-    helpful: 9,
-    verified: true,
-  },
-  {
-    name: "ניר ב.",
-    date: "18 בינואר 2026",
-    rating: 4,
-    title: "מעולה, אבל יקרה",
-    body: "המכונה פשוט עובדת מצוין. כל ספציאליטי מדויק ועקבי. הנקודה היחידה שהורידה כוכב אחד היא המחיר — אבל ביחס לאיכות, אולי צדק.",
-    helpful: 6,
-    verified: true,
-  },
-  {
-    name: "תמר כ.",
-    date: "5 בדצמבר 2025",
-    rating: 5,
-    title: "שירות + מוצר = 10/10",
-    body: "ההתקנה בבית הייתה חוויה בפני עצמה. הטכנאי הסביר הכל, הגדיר לי את הגרסאות שאני אוהבת, ועזר לי להבין את האפליקציה. ממליצה בחום.",
-    helpful: 22,
-    verified: true,
-  },
-  {
-    name: "יוסף מ.",
-    date: "11 בנובמבר 2025",
-    rating: 5,
-    title: "אחרי 5 שנים עם מכונה ידנית",
-    body: "עברתי מ-La Marzocco ביתית לZura Z10 ולא הצטערתי. כן, אני מפספס קצת את הטקס — אבל הקפה יוצא עקבי ומוצלח בכל פעם, גם ב-6 בבוקר.",
-    helpful: 11,
-    verified: false,
-  },
-  {
-    name: "שירה פ.",
-    date: "3 באוקטובר 2025",
-    rating: 5,
-    title: "עיצוב שגרם לי לרכוש",
-    body: "לא אשקר — קניתי בחלק גדול בגלל הצבע הלבן קרם שמשתלב מושלם במטבח שלי. אבל אחרי חודשיים, הקפה הוא הסיבה שאני שמחה שקניתי.",
-    helpful: 8,
-    verified: true,
-  },
-];
+export function ProductReviewsV2({ product }: { product: Product }) {
+  const { reviews, qa } = product;
+  const avg = (reviews.reduce((a, r) => a + r.rating, 0) / reviews.length).toFixed(1);
+  const counts = [5, 4, 3, 2, 1].map(s => ({ stars: s, count: reviews.filter(r => r.rating === s).length }));
 
-const breakdown = [5, 5, 4, 5, 5, 5];
-const avg = (breakdown.reduce((a, b) => a + b, 0) / breakdown.length).toFixed(1);
-const counts = [5, 4, 3, 2, 1].map(s => ({ stars: s, count: breakdown.filter(r => r === s).length }));
-
-const qa = [
-  {
-    q: "האם אפשר להשתמש בקפה קלוי בהיר?",
-    a: "בהחלט. אפשר לכוונן את דרגת הגסות והטמפרטורה, מה שמאפשר מיצוי מצוין גם לקלייה בהירה.",
-    date: "10 בינואר 2026",
-  },
-  {
-    q: "כמה זמן לוקח הניקוי האוטומטי?",
-    a: "ניקוי יומי — כ-2 דקות. תוכנית כייל חודשית — כ-30 דקות. המכונה מזכירה לכם מראש.",
-    date: "22 בפברואר 2026",
-  },
-];
-
-export function ProductReviewsV2() {
   const [filter, setFilter] = useState<number | null>(null);
   const [helpfulClicked, setHelpfulClicked] = useState<Set<number>>(new Set());
   const filtered = filter ? reviews.filter(r => r.rating === filter) : reviews;
@@ -125,7 +56,7 @@ export function ProductReviewsV2() {
 
           {/* Write review CTA */}
           <div className="shrink-0 flex flex-col justify-center gap-3">
-            <p className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-60">קנית JURA Z10?</p>
+            <p className="text-[#522c25] text-[18px] font-['Dialect_PM',sans-serif] opacity-60">קנית {product.name}?</p>
             <button className="border-2 border-[#522c25]/30 text-[#522c25] text-[17px] font-['Dialect_PM',sans-serif] px-6 py-3 rounded-xl hover:border-[#8B3A00] hover:text-[#8B3A00] transition-all">
               ביקורת חדשה
             </button>

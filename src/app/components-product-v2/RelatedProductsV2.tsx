@@ -1,58 +1,9 @@
 import { Star } from "lucide-react";
 import { PriceTag } from "./PriceTag";
+import type { Product } from "../data/products";
 
-const related = [
-  {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-E8-דור-3.jpg",
-    brand: "JURA",
-    name: "E8 דור 3 — מחודש",
-    desc: "מכונה משומשת במצב מעולה, עברה בדיקה ואחריות 6 חודשים",
-    price: 'ש"ח 3,999',
-    oldPrice: 'ש"ח 6,999',
-    rating: 4.8,
-    reviews: 24,
-    badge: "טרייד אין",
-    badgeColor: "#2e7d32",
-  },
-  {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-J8-twin-צבע-שחור-יהלום.jpg",
-    brand: "JURA",
-    name: "J8 Twin",
-    desc: "שני גריינדרים מקצועיים, 32 ספציאליטי",
-    price: 'ש"ח 12,499',
-    oldPrice: null,
-    rating: 5.0,
-    reviews: 11,
-    badge: "פרמיום",
-    badgeColor: "#1c1c1c",
-  },
-  {
-    image: "https://espressimo.co.il/wp-content/uploads/2021/03/מכונת-אספרסו-לה-מרזוקו-לינאה-מיני-אדום-La-Marzocco-Linea-Mini.jpg",
-    brand: "La Marzocco",
-    name: "Linea Mini",
-    desc: "מכונת ידנית מקצועית לבית, דרגה בריסטה",
-    price: 'ש"ח 14,900',
-    oldPrice: null,
-    rating: 4.9,
-    reviews: 17,
-    badge: "הטוב ביותר לידניות",
-    badgeColor: "#2e5a88",
-  },
-  {
-    image: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-ENA-8-דור-3.jpg",
-    brand: "JURA",
-    name: "ENA 8 דור 3",
-    desc: "קומפקטי, מושלם לדירות קטנות — ביצועים גדולים",
-    price: 'ש"ח 4,299',
-    oldPrice: 'ש"ח 4,999',
-    rating: 4.7,
-    reviews: 31,
-    badge: "מציאה",
-    badgeColor: "#2e7d32",
-  },
-];
-
-export function RelatedProductsV2() {
+export function RelatedProductsV2({ product }: { product: Product }) {
+  const related = product.related;
   return (
     <section className="bg-[#fff9f2] border-b border-[#e6dad4]" dir="rtl">
       <div className="px-12 py-14">
@@ -67,7 +18,7 @@ export function RelatedProductsV2() {
           {related.map((p, i) => (
             <a
               key={i}
-              href="#"
+              href={p.href ?? "#"}
               className="group border-l border-[#e6dad4] first:border-l-0 flex flex-col hover:bg-[#f6ede3] transition-colors duration-200 relative"
             >
               {/* Badge */}

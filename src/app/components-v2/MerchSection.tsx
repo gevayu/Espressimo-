@@ -79,7 +79,7 @@ function ProductCarousel({ title, subtitle, picks, slideDelay = 0 }: ProductCaro
                   <img
                     src={pick.image}
                     alt={pick.name}
-                    className="w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.04]"
+                    className="w-full h-full object-contain mix-blend-multiply p-4 transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-300 rounded-lg" />
                 </div>

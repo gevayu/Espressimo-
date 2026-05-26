@@ -1,16 +1,24 @@
+import { Wrench, Star, Coffee } from "lucide-react";
+
 const trustPoints = [
   {
+    icon: Coffee,
+    value: "50+",
     title: "מכונות קפה פרימיום",
-    description: "הקפה שלכם, המקצועיות שלנו",
+    description: "מהמותגים הטובים בעולם — JURA, La Marzocco, ECM ועוד",
     color: "#8B3A00",
   },
   {
-    title: "25+ שנות מומחיות",
-    description: "בידיים מנוסות שמבינות את כל המכונות",
+    icon: Star,
+    value: "25+",
+    title: "שנות מומחיות",
+    description: "בידיים מנוסות שמבינות כל מכונה, מכל סוג",
     color: "#c46500",
   },
   {
-    title: "שיקום ותיקון מקצועי",
+    icon: Wrench,
+    value: "4,000+",
+    title: "מכונות שוקמו",
     description: "במעבדה שלנו, כל מכונה יוצאת כמו חדשה",
     color: "#522c25",
   },
@@ -18,22 +26,23 @@ const trustPoints = [
 
 export function SubscriptionSection() {
   return (
-    <section className="bg-[#fff9f2] border-y border-[#e6dad4] my-10" dir="rtl">
-      <div className="flex items-stretch">
-        {trustPoints.map((point, i) => (
-          <div
-            key={i}
-            className="flex-1 px-12 py-14 flex flex-col gap-3"
-          >
-            <div
-              className="w-10 h-1 rounded-full mb-2"
-              style={{ backgroundColor: point.color }}
-            />
-            <h3 className="text-[#522c25] text-[32px] leading-[26px] font-['Dialect_PM',sans-serif] font-bold tracking-[0.05em]">
-              {point.title}
+    <section className="bg-[#fff9f2] border-y border-[#e6dad4]" dir="rtl">
+      <div className="flex items-stretch divide-x divide-x-reverse divide-[#e6dad4]">
+        {trustPoints.map(({ icon: Icon, value, title, description, color }, i) => (
+          <div key={i} className="flex-1 px-12 py-12 flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${color}15` }}>
+                <Icon size={26} style={{ color }} strokeWidth={1.5} />
+              </div>
+              <span className="font-['Dialect_PM',sans-serif] font-bold text-[52px] leading-none" style={{ color }}>
+                {value}
+              </span>
+            </div>
+            <h3 className="text-[#522c25] text-[24px] font-['Dialect_PM',sans-serif] font-bold leading-tight">
+              {title}
             </h3>
-            <p className="text-[#522c25] text-[25px] leading-[34px] font-['Dialect_PM',sans-serif] opacity-75">
-              {point.description}
+            <p className="text-[#522c25] text-[18px] leading-[1.65] font-['Dialect_PM',sans-serif] opacity-60">
+              {description}
             </p>
           </div>
         ))}

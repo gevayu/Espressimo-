@@ -1,0 +1,270 @@
+// Category / archive page data — מכונות קפה אוטומטיות
+// Prices are stored as numbers for sorting; format with formatPrice() for display.
+
+export type Product = {
+  id: string;
+  image: string;
+  brand: string;
+  name: string;
+  desc: string;
+  price: number;
+  oldPrice: number | null;
+  rating: number;
+  reviews: number;
+  features: string[];
+  inStock: boolean;
+  isTradeIn: boolean;
+  popularity: number; // higher = more popular (default sort)
+  addedOrder: number; // higher = newer
+  badge?: string;
+  badgeColor?: string;
+};
+
+export const formatPrice = (n: number) => `ש"ח ${n.toLocaleString("en-US")}`;
+
+const IMG = {
+  z10: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-Z10-800x800.jpg",
+  e8: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-E8-דור-3.jpg",
+  j8: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-J8-twin-צבע-שחור-יהלום.jpg",
+  ena8: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-ENA-8-דור-3.jpg",
+  white: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-יורה-JURA-צבע-לבן-יהלום-800x800.jpg",
+  grinder: "https://espressimo.co.il/wp-content/uploads/2024/12/מכונת-קפה-אוטומטית-טוחנת-יורה-JURA-Z10-800x800.jpg",
+};
+
+// Facet definitions
+export const FEATURES = [
+  "חלב אוטומטי",
+  "מסך מגע",
+  "טוחנת כפולה",
+  "חיבור מים ישיר",
+  "קומפקטית",
+  "מתאים למשרד",
+] as const;
+
+export const PRICE_RANGES: { id: string; label: string; min: number; max: number }[] = [
+  { id: "u5", label: 'עד ש"ח 5,000', min: 0, max: 4999 },
+  { id: "5-8", label: 'ש"ח 5,000 – 8,000', min: 5000, max: 8000 },
+  { id: "8-12", label: 'ש"ח 8,000 – 12,000', min: 8000, max: 12000 },
+  { id: "o12", label: 'מעל ש"ח 12,000', min: 12000, max: Infinity },
+];
+
+export const SORT_OPTIONS = [
+  { id: "popular", label: "הנמכרים ביותר" },
+  { id: "price-asc", label: "מחיר: מהנמוך לגבוה" },
+  { id: "price-desc", label: "מחיר: מהגבוה לנמוך" },
+  { id: "rating", label: "הדירוג הגבוה ביותר" },
+  { id: "new", label: "החדשים ביותר" },
+] as const;
+
+export type SortId = (typeof SORT_OPTIONS)[number]["id"];
+
+export const products: Product[] = [
+  {
+    id: "jura-z10",
+    image: IMG.z10,
+    brand: "JURA",
+    name: "Z10",
+    desc: "מכונת הדגל של יורה — קפה חם וקר אוטומטי, מסך מגע ענק וטוחנת כפולה.",
+    price: 9999,
+    oldPrice: 11499,
+    rating: 4.9,
+    reviews: 42,
+    features: ["חלב אוטומטי", "מסך מגע", "טוחנת כפולה"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 100,
+    addedOrder: 11,
+    badge: "הנמכרת ביותר",
+    badgeColor: "#8B3A00",
+  },
+  {
+    id: "jura-e8",
+    image: IMG.e8,
+    brand: "JURA",
+    name: "E8 דור 3",
+    desc: "הקלאסיקה של יורה — 17 משקאות בלחיצה, מערכת חלב אוטומטית מושלמת.",
+    price: 7499,
+    oldPrice: null,
+    rating: 4.8,
+    reviews: 56,
+    features: ["חלב אוטומטי", "מסך מגע"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 95,
+    addedOrder: 6,
+  },
+  {
+    id: "jura-j8",
+    image: IMG.j8,
+    brand: "JURA",
+    name: "J8 Twin",
+    desc: "שני גריינדרים מקצועיים, 32 ספציאליטי, בגימור שחור יהלום.",
+    price: 12499,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 11,
+    features: ["חלב אוטומטי", "מסך מגע", "טוחנת כפולה"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 70,
+    addedOrder: 9,
+    badge: "פרמיום",
+    badgeColor: "#1c1c1c",
+  },
+  {
+    id: "jura-ena8",
+    image: IMG.ena8,
+    brand: "JURA",
+    name: "ENA 8 דור 3",
+    desc: "קומפקטית, מושלמת לדירות קטנות — ביצועים גדולים בנפח מינימלי.",
+    price: 4299,
+    oldPrice: 4999,
+    rating: 4.7,
+    reviews: 31,
+    features: ["חלב אוטומטי", "קומפקטית"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 88,
+    addedOrder: 4,
+    badge: "מציאה",
+    badgeColor: "#2e7d32",
+  },
+  {
+    id: "jura-e8-refurb",
+    image: IMG.e8,
+    brand: "JURA",
+    name: "E8 דור 3 — מחודשת",
+    desc: "מכונה משומשת במצב מעולה, עברה בדיקה מקיפה ואחריות 6 חודשים.",
+    price: 3999,
+    oldPrice: 6999,
+    rating: 4.8,
+    reviews: 24,
+    features: ["חלב אוטומטי", "מסך מגע"],
+    inStock: true,
+    isTradeIn: true,
+    popularity: 80,
+    addedOrder: 2,
+    badge: "טרייד אין",
+    badgeColor: "#2e7d32",
+  },
+  {
+    id: "jura-giga6",
+    image: IMG.grinder,
+    brand: "JURA",
+    name: "GIGA 6",
+    desc: "שני בוילרים ושתי טוחנות — שני משקאות בו-זמנית. הטופ של יורה.",
+    price: 17900,
+    oldPrice: null,
+    rating: 4.9,
+    reviews: 8,
+    features: ["חלב אוטומטי", "מסך מגע", "טוחנת כפולה", "חיבור מים ישיר"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 55,
+    addedOrder: 10,
+    badge: "טופ",
+    badgeColor: "#1c1c1c",
+  },
+  {
+    id: "jura-we8",
+    image: IMG.white,
+    brand: "JURA",
+    name: "WE8",
+    desc: "מתאימה למשרד קטן ולעסק — עד 30 כוסות ביום עם מערכת חלב מובנית.",
+    price: 6990,
+    oldPrice: null,
+    rating: 4.7,
+    reviews: 21,
+    features: ["חלב אוטומטי", "מתאים למשרד"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 72,
+    addedOrder: 5,
+    badge: "למשרד",
+    badgeColor: "#2e5a88",
+  },
+  {
+    id: "kalerm-k95l",
+    image: IMG.z10,
+    brand: "Kalerm",
+    name: "K95L",
+    desc: "מסך מגע 10\", חיבור מים ישיר ומקרר חלב — סוס עבודה לעסק.",
+    price: 6490,
+    oldPrice: null,
+    rating: 4.6,
+    reviews: 18,
+    features: ["חלב אוטומטי", "מסך מגע", "חיבור מים ישיר", "מתאים למשרד"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 60,
+    addedOrder: 7,
+  },
+  {
+    id: "kalerm-k90",
+    image: IMG.ena8,
+    brand: "Kalerm",
+    name: "K90",
+    desc: "אוטומטית משתלמת לבית ולמשרד הקטן, עם מערכת חלב אוטומטית.",
+    price: 5290,
+    oldPrice: null,
+    rating: 4.5,
+    reviews: 12,
+    features: ["חלב אוטומטי"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 50,
+    addedOrder: 3,
+  },
+  {
+    id: "kalerm-k85",
+    image: IMG.white,
+    brand: "Kalerm",
+    name: "K85",
+    desc: "הכניסה לעולם הקפה האוטומטי — קומפקטית ובמחיר שובר שוק.",
+    price: 3990,
+    oldPrice: 4690,
+    rating: 4.3,
+    reviews: 15,
+    features: ["קומפקטית"],
+    inStock: false,
+    isTradeIn: false,
+    popularity: 65,
+    addedOrder: 1,
+    badge: "מציאה",
+    badgeColor: "#2e7d32",
+  },
+  {
+    id: "drcoffee-f11",
+    image: IMG.grinder,
+    brand: "DR COFFEE",
+    name: "F11 Plus",
+    desc: "מכונה מסחרית — טוחנת כפולה, חיבור מים ישיר ומסך מגע גדול.",
+    price: 8900,
+    oldPrice: null,
+    rating: 4.6,
+    reviews: 9,
+    features: ["מסך מגע", "טוחנת כפולה", "חיבור מים ישיר", "מתאים למשרד"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 48,
+    addedOrder: 8,
+    badge: "למשרד",
+    badgeColor: "#2e5a88",
+  },
+  {
+    id: "drcoffee-c11",
+    image: IMG.j8,
+    brand: "DR COFFEE",
+    name: "C11",
+    desc: "אוטומטית אמינה לבית עם מערכת חלב אוטומטית ותחזוקה פשוטה.",
+    price: 6200,
+    oldPrice: null,
+    rating: 4.4,
+    reviews: 7,
+    features: ["חלב אוטומטי"],
+    inStock: true,
+    isTradeIn: false,
+    popularity: 42,
+    addedOrder: 12,
+  },
+];

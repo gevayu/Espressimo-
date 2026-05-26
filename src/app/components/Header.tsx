@@ -1,5 +1,5 @@
 import { Search, ChevronDown, ShoppingCart, User } from "lucide-react";
-import imgLogo from "../../imports/HomePage-2/fb863a6f83f0deff3e89866fe19b2a6231928be4.png";
+const imgLogo = "/picts/logo.png";
 
 export function Header() {
   return (
