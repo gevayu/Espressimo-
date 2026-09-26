@@ -1,6 +1,6 @@
 <?php
 // Read-only product export. Args: offset limit [post_type]
-$o=(int)($args[0]??0);$l=(int)($args[1]??25);$pt=$args[2]??'product';
+$o=(int)($args[0]??0);$l=(int)($args[1]??60);$cap=(int)($args[3]??56000);$pt=$args[2]??'product';
 $ids=get_posts(['post_type'=>$pt,'post_status'=>'publish','numberposts'=>$l,'offset'=>$o,'orderby'=>'ID','order'=>'ASC','fields'=>'ids']);
 $clean=function($h){$h=(string)$h;$h=preg_replace('/\[\/?[a-zA-Z_\-]+[^\]]*\]/','',$h);$h=preg_replace('/<(br|\/p|\/li|\/h\d|\/div|\/tr|\/td|\/th)[^>]*>/i',"\n",$h);$t=wp_strip_all_tags($h);$t=html_entity_decode($t,ENT_QUOTES,'UTF-8');$t=preg_replace("/[ \t]+/",' ',$t);return trim(preg_replace("/\n\s*\n+/","\n",$t));};
 $skip='/^(_elementor|_edit_|_wp_|_thumbnail_id|_price|_regular_price|_sale_price|_sku|_stock|_manage_stock|_backorders|_product_image_gallery|_product_attributes|_product_version|_downloadable|_virtual|_tax_|_weight|_length|_width|_height|_sold_individually|_upsell_ids|_crosssell_ids|_purchase_note|_default_attributes|_download|_wc_|total_sales|_yoast|rank_math|_oembed|_menu_item|_tribe|_transient|_aioseo|_last_editor|_encloseme|_pingme)/';
@@ -8,7 +8,7 @@ $flat=function($v)use(&$flat){if(is_array($v)){$o=[];foreach($v as $x){$f=$flat(
 $rows=[];
 foreach($ids as $id){$post=get_post($id);$p=function_exists('wc_get_product')?wc_get_product($id):null;
 $attrs=[];if($p){foreach($p->get_attributes() as $a){if(!is_object($a))continue;$attrs[wc_attribute_label($a->get_name())]=$a->is_taxonomy()?implode(', ',wc_get_product_terms($id,$a->get_name(),['fields'=>'names'])):implode(', ',$a->get_options());}}
-$meta=[];foreach(get_post_meta($id) as $k=>$v){if(preg_match($skip,$k))continue;$raw=$v[0];$val=maybe_unserialize($raw);$s=$clean($flat($val));if(mb_strlen($s)<15||is_numeric($s))continue;if(!preg_match('/[\p{L}]{3}/u',$s))continue;$meta[$k]=mb_substr($s,0,6000);}
+$meta=[];foreach(get_post_meta($id) as $k=>$v){if($k[0]=='_'||preg_match($skip,$k))continue;$raw=$v[0];$val=maybe_unserialize($raw);$s=$clean($flat($val));if(mb_strlen($s)<15||is_numeric($s))continue;if(!preg_match('/[\p{L}]{3}/u',$s))continue;$meta[$k]=mb_substr($s,0,6000);}
 $el='';$ed=get_post_meta($id,'_elementor_data',true);if($ed){$j=json_decode($ed,true);if(is_array($j)){$acc=[];array_walk_recursive($j,function($v,$k)use(&$acc){if(is_string($v)&&in_array($k,['title','editor','text','description','tab_title','tab_content','item_title','content','heading_title','title_text','description_text'],true))$acc[]=$v;});$el=$clean(implode("\n",$acc));}}
-$rows[]=['id'=>$id,'title'=>$post->post_title,'url'=>get_permalink($id),'sku'=>$p?$p->get_sku():'','price'=>$p?$p->get_price():'','type'=>$p?$p->get_type():'','cats'=>implode(', ',wp_get_post_terms($id,$pt=='product'?'product_cat':'category',['fields'=>'names'])),'short'=>$clean($post->post_excerpt),'content'=>$clean($post->post_content),'attrs'=>$attrs,'meta'=>$meta,'elementor'=>$el];}
-fwrite(STDERR,'N='.count($rows).'|'.base64_encode(gzencode(json_encode($rows,JSON_UNESCAPED_UNICODE),9)));
+$row=['id'=>$id,'title'=>$post->post_title,'url'=>get_permalink($id),'sku'=>$p?$p->get_sku():'','price'=>$p?$p->get_price():'','type'=>$p?$p->get_type():'','cats'=>implode(', ',wp_get_post_terms($id,$pt=='product'?'product_cat':'category',['fields'=>'names'])),'short'=>$clean($post->post_excerpt),'content'=>$clean($post->post_content),'attrs'=>$attrs,'meta'=>$meta,'elementor'=>$el];$try=$rows;$try[]=$row;$enc=base64_encode(gzencode(json_encode($try,JSON_UNESCAPED_UNICODE),9));if(strlen($enc)>$cap&&count($rows)>0)break;$rows=$try;$last=$enc;}
+fwrite(STDERR,'N='.count($rows).'|NEXT='.($o+count($rows)).'|'.($last??''));
